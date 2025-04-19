@@ -1,0 +1,37 @@
+Build me a personal portfolio website using only HTML, CSS, and JavaScript, inspired by https://aayushbharti.in/.
+
+My name is Anirudh Vasudev, a Full Stack Developer & Backend Optimization Specialist with 4+ years of experience working with technologies like React, Node.js, and various backend stacks.
+
+The website should include the following sections:
+	1.	Home/Landing Page
+	•	A modern, clean hero section with a greeting like:
+“Hi, I’m Anirudh Vasudev – Full Stack Developer & Backend Specialist”
+	•	Smooth scroll to other sections.
+	•	Background animation or gradient, subtle motion effects.
+	2.	About Me
+	•	A short paragraph describing my passion for software development, backend systems, and scalable applications.
+	•	Include keywords: React, Node.js, backend optimization, full stack, scalable systems.
+	3.	Experience
+	•	Timeline or card layout for key roles:
+	•	Deloitte – Requirement analysis, real-time systems.
+	•	BHIVE Alts – Investor app, ₹60 Cr revenue payment module.
+	•	Webbirth – React Native, Node.js, Laravel apps.
+	•	Civil Engineering System – PHP backend, React UI.
+	4.	Skills
+	•	Display as a grid of icons or tags with subtle hover animations.
+	•	Include: React, Node.js, Express, Tailwind, MySQL, Firebase, AWS, Figma, Git, HTML, CSS, JavaScript.
+	5.	Projects
+	•	Highlight 3-4 top projects or contributions. Use cards or modals with hover effects and animation.
+	6.	Education
+	•	Master’s in Data Science (IU – ongoing)
+	•	BTech in Computer Science (Presidency University)
+	7.	Contact
+	•	A contact form with email validation or just a mailto link (anirudh040799@gmail.com).
+	•	Add links to my LinkedIn (linkedin.com/in/anirudh-vasudev) and current site (anirudhvasudev.online).
+
+Design Requirements:
+	•	Use pure HTML, CSS, and JavaScript only (no frameworks).
+	•	Include smooth animations (fade-in, slide-in, hover effects, etc.).
+	•	Responsive design (desktop + mobile).
+	•	Sticky navbar with scroll-to-section links.
+	•	Optional: Add dark/light mode toggle if possible with vanilla JS.
