@@ -52,20 +52,17 @@ const Experience = () => {
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto relative bg-red-500">
+        <div className="max-w-4xl mx-auto relative ">
           {/* Vertical center line that connects all dots */}
           <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200 z-0"></div>
 
           {experiences.map((exp, index) => (
             <div key={index} className="relative mb-20 md:mb-16 pt-2">
               {/* Timeline dot positioned in the center */}
-              <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-7 h-7 bg-primary rounded-full top-0 z-10 border-2 border-white"></div>
+              <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-7 h-7 bg-primary rounded-full top-8 z-10 border-2 border-white"></div>
 
-
-              
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 pt-7 md:pt-0 bg-blue-400">
-                <div className="text-center md:text-right order-1">
+              <div className="flex flex-col md:flex-row flex-auto ">
+                <div className="flex-1 py-8 items-center justify-center text-center order-1 ">
                   <h3 className="text-xl font-bold text-primary">
                     {exp.company}
                   </h3>
@@ -73,7 +70,7 @@ const Experience = () => {
                   <p className="font-medium">{exp.title}</p>
                 </div>
 
-                <div className="order-2">
+                <div className="flex-1 md:pl-24 items-center justify-center order-2">
                   <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <p className="text-gray-700 mb-4">{exp.description}</p>
                     <div className="flex flex-wrap gap-2">
