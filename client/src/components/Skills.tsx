@@ -1,18 +1,60 @@
+import { useQuery } from "@tanstack/react-query";
+import { Skill as SkillType } from "@shared/schema";
+
 const Skills = () => {
-  const skills = [
-    { name: "React", icon: "ri-reactjs-line", color: "text-primary" },
-    { name: "Node.js", icon: "ri-nodejs-line", color: "text-green-600" },
-    { name: "Express", icon: "ri-server-line", color: "text-gray-700" },
-    { name: "Tailwind", icon: "ri-css3-line", color: "text-accent" },
-    { name: "MySQL", icon: "ri-database-2-line", color: "text-blue-700" },
-    { name: "Firebase", icon: "ri-fire-line", color: "text-orange-500" },
-    { name: "AWS", icon: "ri-amazon-line", color: "text-yellow-600" },
-    { name: "Figma", icon: "ri-pencil-ruler-2-line", color: "text-purple-600" },
-    { name: "Git", icon: "ri-git-branch-line", color: "text-red-600" },
-    { name: "HTML", icon: "ri-html5-line", color: "text-orange-600" },
-    { name: "CSS", icon: "ri-css3-line", color: "text-blue-500" },
-    { name: "JavaScript", icon: "ri-javascript-line", color: "text-yellow-500" }
-  ];
+  // Fetch skills data from the API
+  const { data: skills = [], isLoading, error } = useQuery<SkillType[]>({
+    queryKey: ['/api/skills'],
+  });
+  
+  // Map skill categories to icon and color options
+  const getSkillIcon = (name: string, category: string) => {
+    // Map skill names to specific icons (using Remix Icon library)
+    const iconMap: Record<string, string> = {
+      "JavaScript": "ri-javascript-line",
+      "TypeScript": "ri-code-s-slash-line",
+      "React": "ri-reactjs-line",
+      "Vue.js": "ri-vuejs-line",
+      "HTML5": "ri-html5-line",
+      "CSS3": "ri-css3-line",
+      "Tailwind CSS": "ri-css3-line",
+      "Node.js": "ri-nodejs-line",
+      "Express": "ri-server-line",
+      "PostgreSQL": "ri-database-2-line",
+      "MongoDB": "ri-database-2-line",
+      "GraphQL": "ri-code-line",
+      "Docker": "ri-ship-line",
+      "Git": "ri-git-branch-line",
+      "Jest": "ri-test-tube-line",
+      "Cypress": "ri-test-tube-line",
+      "Figma": "ri-pencil-ruler-2-line"
+    };
+    
+    // Map categories to fallback icons
+    const categoryIcons: Record<string, string> = {
+      "Frontend": "ri-code-s-slash-line",
+      "Backend": "ri-server-line",
+      "DevOps": "ri-settings-line",
+      "Testing": "ri-test-tube-line",
+      "Design": "ri-pencil-ruler-line"
+    };
+    
+    // Return specific icon if available, otherwise use category icon, or default icon
+    return iconMap[name] || categoryIcons[category] || "ri-code-line";
+  };
+  
+  // Map skill categories to colors
+  const getSkillColor = (category: string) => {
+    const colorMap: Record<string, string> = {
+      "Frontend": "text-blue-500",
+      "Backend": "text-green-600",
+      "DevOps": "text-gray-700",
+      "Testing": "text-purple-600",
+      "Design": "text-pink-500"
+    };
+    
+    return colorMap[category] || "text-primary";
+  };
 
   return (
     <section id="skills" className="py-20 bg-gray-50 section">
@@ -22,16 +64,60 @@ const Skills = () => {
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-card bg-white rounded-lg shadow p-4 md:p-6 text-center">
-              <div className={`flex justify-center mb-3 md:mb-4 ${skill.color} text-2xl md:text-3xl`}>
-                <i className={skill.icon}></i>
+        {isLoading && (
+          <div className="flex justify-center items-center h-40">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        )}
+        
+        {error && (
+          <div className="text-center text-red-500 my-8">
+            <p>Failed to load skills data. Please try again later.</p>
+          </div>
+        )}
+        
+        {!isLoading && !error && skills.length > 0 && (
+          <>
+            {/* Group skills by category */}
+            {Array.from(new Set(skills.map(skill => skill.category))).map(category => (
+              <div key={category} className="mb-12">
+                <h3 className="text-xl md:text-2xl font-bold mb-6">{category}</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+                  {skills
+                    .filter(skill => skill.category === category)
+                    .sort((a, b) => (b.level || 0) - (a.level || 0))
+                    .map((skill) => (
+                      <div key={skill.id} className="skill-card bg-white rounded-lg shadow p-4 md:p-6 text-center">
+                        <div className={`flex justify-center mb-3 md:mb-4 ${getSkillColor(skill.category)} text-2xl md:text-3xl`}>
+                          {skill.icon ? (
+                            <i className={`${skill.icon}`}></i>
+                          ) : (
+                            <i className={getSkillIcon(skill.name, skill.category)}></i>
+                          )}
+                        </div>
+                        <h3 className="text-sm md:text-base font-medium">{skill.name}</h3>
+                        {skill.level !== null && skill.level !== undefined && (
+                          <div className="mt-2 w-full bg-gray-200 rounded-full h-1.5">
+                            <div 
+                              className="bg-primary h-1.5 rounded-full" 
+                              style={{ width: `${skill.level}%` }}
+                            ></div>
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-              <h3 className="text-sm md:text-lg font-medium">{skill.name}</h3>
-            </div>
-          ))}
-        </div>
+            ))}
+          </>
+        )}
+        
+        {!isLoading && !error && skills.length === 0 && (
+          <div className="text-center text-gray-500 my-8">
+            <p>No skills found.</p>
+          </div>
+        )}
       </div>
     </section>
   );

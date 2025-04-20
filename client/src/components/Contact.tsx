@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { apiRequest } from '../lib/queryClient';
+import { insertMessageSchema } from '@shared/schema';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +14,36 @@ const Contact = () => {
     name: '',
     email: '',
     message: ''
+  });
+  
+  // State to track submission status
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  
+  // Create mutation for sending messages to the API
+  const sendMessageMutation = useMutation({
+    mutationFn: async (data: typeof formData) => {
+      return apiRequest('/api/messages', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
+    },
+    onSuccess: () => {
+      setSubmitStatus('success');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    },
+    onError: () => {
+      setSubmitStatus('error');
+    }
   });
 
   const validateEmail = (email: string) => {
@@ -62,15 +95,8 @@ const Contact = () => {
     setErrors(newErrors);
     
     if (valid) {
-      // Redirect to email client
-      window.location.href = `mailto:anirudh040799@gmail.com?subject=Contact from ${formData.name}&body=${formData.message}`;
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
+      // Submit to the API
+      sendMessageMutation.mutate(formData);
     }
   };
 
