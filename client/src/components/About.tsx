@@ -20,24 +20,24 @@ const About = () => {
           </div>
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold mb-4 text-primary dark:text-primary">
+            <h3 className="text-2xl font-bold mb-4 text-primary">
               Full Stack Developer with a Backend Passion
             </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-lg text-gray-700 mb-6">
               With over 4 years of experience in software development, I've
               cultivated a deep passion for building efficient, scalable, and
               robust applications. My journey has taken me through various tech
               stacks and industries, but my core focus remains on creating
               systems that deliver exceptional performance.
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-lg text-gray-700 mb-6">
               I specialize in developing full-stack applications with React on
               the frontend and Node.js for backend services. My expertise
               extends to database optimization, API design, and implementing
               scalable architecture patterns that can handle growing user
               demands.
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+            <p className="text-lg text-gray-700 mb-8">
               What drives me is solving complex problems with elegant solutions.
               Whether it's optimizing a slow-performing database query,
               refactoring legacy code, or designing a new system from scratch, I
@@ -45,19 +45,19 @@ const About = () => {
             </p>
 
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-primary dark:text-blue-200 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm font-medium">
                 React
               </span>
-              <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-secondary dark:text-green-200 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm font-medium">
                 Node.js
               </span>
-              <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-200 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">
                 Backend Optimization
               </span>
-              <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-accent dark:text-indigo-200 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-indigo-100 text-accent rounded-full text-sm font-medium">
                 Full Stack
               </span>
-              <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                 Scalable Systems
               </span>
             </div>
