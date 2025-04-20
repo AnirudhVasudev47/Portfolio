@@ -1,49 +1,15 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Download, FileText, Send } from 'lucide-react';
-
-interface ResumeOption {
-  id: string;
-  title: string;
-  description: string;
-  selected: boolean;
-}
 
 const ResumeDownload: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
-  const [options, setOptions] = useState<ResumeOption[]>([
-    {
-      id: 'full',
-      title: 'Complete Resume',
-      description: 'Includes all work experience, education, skills, and projects',
-      selected: true
-    },
-    {
-      id: 'concise',
-      title: 'Concise Version',
-      description: 'A one-pager focused only on relevant highlights',
-      selected: false
-    },
-    {
-      id: 'tech',
-      title: 'Technical Resume',
-      description: 'Emphasizes technical skills and projects',
-      selected: false
-    }
-  ]);
   const [email, setEmail] = useState('');
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-
-  const handleOptionToggle = (id: string) => {
-    setOptions(options.map(option => 
-      option.id === id ? { ...option, selected: !option.selected } : option
-    ));
-  };
 
   const handleDownload = () => {
     setIsDownloading(true);
@@ -109,28 +75,21 @@ const ResumeDownload: React.FC = () => {
           <DialogHeader>
             <DialogTitle>Download Resume</DialogTitle>
             <DialogDescription>
-              {!showEmailForm && !showSuccess && "Choose which version of the resume you'd like to download"}
+              {!showEmailForm && !showSuccess && "Get Anirudh's professional resume"}
               {showEmailForm && !showSuccess && "Enter your email to receive the resume"}
               {showSuccess && "Success!"}
             </DialogDescription>
           </DialogHeader>
           
           {!showEmailForm && !showSuccess && (
-            <div className="flex flex-col space-y-4 py-4">
-              {options.map((option) => (
-                <div key={option.id} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors">
-                  <Checkbox 
-                    id={option.id} 
-                    checked={option.selected}
-                    onCheckedChange={() => handleOptionToggle(option.id)}
-                    className="mt-1"
-                  />
-                  <div>
-                    <Label htmlFor={option.id} className="text-base font-medium">{option.title}</Label>
-                    <p className="text-sm text-gray-500">{option.description}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="flex flex-col items-center justify-center py-8 px-4">
+              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <FileText className="h-10 w-10 text-primary" />
+              </div>
+              <h3 className="text-lg font-medium mb-2">Anirudh Vasudev - Resume</h3>
+              <p className="text-sm text-gray-500 text-center mb-6">
+                Download the complete professional resume with all experience, skills, and qualifications.
+              </p>
             </div>
           )}
           
