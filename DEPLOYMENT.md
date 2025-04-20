@@ -4,9 +4,9 @@ This guide will help you deploy your portfolio website to Vercel, which provides
 
 ## Prerequisites
 
-1. A [Vercel](https://vercel.com) account
-2. A PostgreSQL database (such as [Neon](https://neon.tech) or any other PostgreSQL provider)
-3. Git repository with your project (GitHub, GitLab, or Bitbucket)
+1. A [Vercel](https://vercel.com) account.
+2. A PostgreSQL database (such as [Neon](https://neon.tech) or any other PostgreSQL provider).
+3. Git repository with your project (GitHub, GitLab, or Bitbucket).
 
 ## Deployment Steps
 
