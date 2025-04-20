@@ -1,0 +1,114 @@
+%PDF-1.4
+1 0 obj
+<< /Title (Anirudh Vasudev - Software Developer Resume)
+/Creator (Sample PDF)
+/Producer (JavaScript)
+/CreationDate (D:20250420112700)
+>>
+endobj
+2 0 obj
+<< /Type /Catalog
+/Pages 3 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages
+/Kids [4 0 R]
+/Count 1
+>>
+endobj
+4 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/MediaBox [0 0 612 792]
+/Contents 5 0 R
+/Resources << /Font << /F1 6 0 R /F2 7 0 R >>
+>>
+>>
+endobj
+5 0 obj
+<< /Length 1000 >>
+stream
+BT
+/F1 24 Tf
+50 700 Td
+(Anirudh Vasudev) Tj
+/F2 12 Tf
+0 -20 Td
+(Full Stack Developer & Backend Optimization Specialist) Tj
+0 -20 Td
+(Phone: 555-123-4567 | Email: anirudh040799@gmail.com) Tj
+0 -20 Td
+(LinkedIn: linkedin.com/in/anirudh-vasudev | GitHub: github.com/anirudhvasudev) Tj
+/F1 18 Tf
+-30 -40 Td
+(Professional Experience) Tj
+/F1 14 Tf
+30 -30 Td
+(Senior Developer - Tech Innovations Ltd) Tj
+/F2 12 Tf
+0 -20 Td
+(January 2022 - Present) Tj
+0 -20 Td
+(- Led backend optimization initiatives resulting in 40% performance improvement) Tj
+0 -20 Td
+(- Developed scalable microservices architecture for high-traffic applications) Tj
+0 -20 Td
+(- Mentored junior developers and conducted code reviews) Tj
+/F1 14 Tf
+0 -30 Td
+(Full Stack Developer - Digital Solutions Inc) Tj
+/F2 12 Tf
+0 -20 Td
+(June 2019 - December 2021) Tj
+0 -20 Td
+(- Built responsive web applications using React and Node.js) Tj
+0 -20 Td
+(- Implemented CI/CD pipelines and automated testing frameworks) Tj
+/F1 18 Tf
+-30 -40 Td
+(Skills) Tj
+/F2 12 Tf
+30 -20 Td
+(Languages: JavaScript, TypeScript, Python, SQL) Tj
+0 -20 Td
+(Frontend: React, Vue.js, HTML5, CSS3, Tailwind CSS) Tj
+0 -20 Td
+(Backend: Node.js, Express, Django, REST APIs, GraphQL) Tj
+0 -20 Td
+(Database: PostgreSQL, MongoDB, Redis, Query Optimization) Tj
+0 -20 Td
+(DevOps: Docker, Kubernetes, AWS, CI/CD, Git) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+7 0 obj
+<< /Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+xref
+0 8
+0000000000 65535 f
+0000000009 00000 n
+0000000146 00000 n
+0000000195 00000 n
+0000000252 00000 n
+0000000389 00000 n
+0000001442 00000 n
+0000001514 00000 n
+trailer
+<< /Size 8
+/Root 2 0 R
+/Info 1 0 R
+>>
+startxref
+1584
+%%EOF

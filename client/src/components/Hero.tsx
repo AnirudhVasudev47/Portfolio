@@ -1,5 +1,6 @@
 import profileImage from '@assets/BAE117E8-52F1-48EB-BCDF-A986FE42D037 2.jpg';
 import { FaCode } from 'react-icons/fa';
+import ResumeDownload from './ResumeDownload';
 
 const Hero = () => {
   return (
@@ -49,6 +50,10 @@ const Hero = () => {
                 View My Work
               </a>
             </div>
+            
+            {/* Resume Download Button */}
+            <ResumeDownload />
+            
             <div className="flex justify-center mt-10 space-x-5">
               <a href="https://linkedin.com/in/anirudh-vasudev" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
                 <i className="ri-linkedin-fill text-2xl"></i>

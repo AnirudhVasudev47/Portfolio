@@ -1,5 +1,7 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
+import path from 'path';
+import express from 'express';
 import { storage } from "./storage";
 import { 
   insertExperienceSchema, 
@@ -10,6 +12,8 @@ import {
 import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve static files from the public directory
+  app.use('/assets', express.static(path.join(process.cwd(), 'public/assets')));
   // API routes for our portfolio data
   
   // Projects routes
