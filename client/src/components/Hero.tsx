@@ -30,10 +30,10 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Anirudh Vasudev
             </h1>
-            <h2 className="text-xl md:text-2xl text-gray-600 font-semibold mb-6">
+            <h2 className="text-xl md:text-2xl text-gray-900 font-semibold mb-6">
               Full Stack Developer & Backend Optimization Specialist
             </h2>
-            <p className="text-base md:text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
               I build scalable, efficient, and user-friendly web applications with a focus on optimized backend systems and seamless frontend experiences.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
