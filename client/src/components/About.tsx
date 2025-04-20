@@ -9,37 +9,13 @@ const About = () => {
 
         <div className="flex flex-col md:flex-row md:gap-12 items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <div className="rounded-lg shadow-xl overflow-hidden bg-gradient-to-br from-primary/5 to-gray-50 p-4 flex flex-col items-center justify-center transform hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-[400px]">
-                <iframe
-                  title="Old Computer"
-                  frameBorder="0"
-                  allowFullScreen={true}
-                  allow="autoplay; fullscreen; xr-spatial-tracking"
-                  src="https://sketchfab.com/models/68938830bb254ec8828f655c3c056ba6/embed?autostart=1&ui_hint=0"
-                  style={{ width: '100%', height: '100%', border: 0 }}
-                ></iframe>
-              </div>
-              <p className="text-xs text-gray-500 mt-2">
-                <span>Model by </span>
-                <a
-                  href="https://sketchfab.com/YvetteKooke"
-                  target="_blank"
-                  rel="nofollow"
-                  className="font-medium text-primary"
-                >
-                  Kookey
-                </a>
-                <span> on </span>
-                <a
-                  href="https://sketchfab.com"
-                  target="_blank"
-                  rel="nofollow"
-                  className="font-medium text-primary"
-                >
-                  Sketchfab
-                </a>
-              </p>
+            <div className="rounded-lg shadow-xl overflow-hidden bg-gradient-to-br from-primary/5 to-gray-50 transform hover:scale-105 transition-transform duration-300">
+              <img 
+                src="/assets/developer-8764521_1280 2.jpg" 
+                alt="Developer at night coding with city view"
+                className="w-full h-auto object-cover" 
+                style={{ maxHeight: '450px' }}
+              />
             </div>
           </div>
 
