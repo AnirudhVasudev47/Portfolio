@@ -66,7 +66,113 @@ const sampleExperiences = [
   }
 ];
 
+// const sampleSkills = [
+//   {
+//     name: "JavaScript",
+//     category: "Frontend",
+//     icon: "SiJavascript",
+//     level: 95
+//   },
+//   {
+//     name: "TypeScript",
+//     category: "Frontend",
+//     icon: "SiTypescript",
+//     level: 90
+//   },
+//   {
+//     name: "React",
+//     category: "Frontend",
+//     icon: "SiReact",
+//     level: 95
+//   },
+//   {
+//     name: "Vue.js",
+//     category: "Frontend",
+//     icon: "SiVuedotjs",
+//     level: 80
+//   },
+//   {
+//     name: "HTML5",
+//     category: "Frontend",
+//     icon: "SiHtml5",
+//     level: 95
+//   },
+//   {
+//     name: "CSS3",
+//     category: "Frontend",
+//     icon: "SiCss3",
+//     level: 90
+//   },
+//   {
+//     name: "Tailwind CSS",
+//     category: "Frontend",
+//     icon: "SiTailwindcss",
+//     level: 85
+//   },
+//   {
+//     name: "Node.js",
+//     category: "Backend",
+//     icon: "SiNodedotjs",
+//     level: 85
+//   },
+//   {
+//     name: "Express",
+//     category: "Backend",
+//     icon: "SiExpress",
+//     level: 85
+//   },
+//   {
+//     name: "PostgreSQL",
+//     category: "Backend",
+//     icon: "SiPostgresql",
+//     level: 80
+//   },
+//   {
+//     name: "MongoDB",
+//     category: "Backend",
+//     icon: "SiMongodb",
+//     level: 75
+//   },
+//   {
+//     name: "GraphQL",
+//     category: "Backend",
+//     icon: "SiGraphql",
+//     level: 70
+//   },
+//   {
+//     name: "Docker",
+//     category: "DevOps",
+//     icon: "SiDocker",
+//     level: 75
+//   },
+//   {
+//     name: "Git",
+//     category: "DevOps",
+//     icon: "SiGit",
+//     level: 90
+//   },
+//   {
+//     name: "Jest",
+//     category: "Testing",
+//     icon: "SiJest",
+//     level: 80
+//   },
+//   {
+//     name: "Cypress",
+//     category: "Testing",
+//     icon: "SiCypress",
+//     level: 75
+//   },
+//   {
+//     name: "Figma",
+//     category: "Design",
+//     icon: "SiFigma",
+//     level: 70
+//   }
+// ];
+
 const sampleSkills = [
+  //Frontend Skills
   {
     name: "JavaScript",
     category: "Frontend",
@@ -83,13 +189,13 @@ const sampleSkills = [
     name: "React",
     category: "Frontend",
     icon: "SiReact",
-    level: 95
+    level: 90
   },
   {
-    name: "Vue.js",
+    name: "Next.js",
     category: "Frontend",
-    icon: "SiVuedotjs",
-    level: 80
+    icon: "SiNextdotjs",
+    level: 85
   },
   {
     name: "HTML5",
@@ -109,11 +215,13 @@ const sampleSkills = [
     icon: "SiTailwindcss",
     level: 85
   },
+
+  //Backend Skills
   {
     name: "Node.js",
     category: "Backend",
     icon: "SiNodedotjs",
-    level: 85
+    level: 90
   },
   {
     name: "Express",
@@ -122,22 +230,24 @@ const sampleSkills = [
     level: 85
   },
   {
-    name: "PostgreSQL",
-    category: "Backend",
-    icon: "SiPostgresql",
-    level: 80
-  },
-  {
     name: "MongoDB",
     category: "Backend",
     icon: "SiMongodb",
-    level: 75
+    level: 85
   },
   {
-    name: "GraphQL",
+    name: "MySQL",
     category: "Backend",
-    icon: "SiGraphql",
-    level: 70
+    icon: "SiMysql",
+    level: 75
+  },
+
+  //DevOps Skills
+  {
+    name: "Git",
+    category: "DevOps",
+    icon: "SiGit",
+    level: 90
   },
   {
     name: "Docker",
@@ -146,29 +256,61 @@ const sampleSkills = [
     level: 75
   },
   {
-    name: "Git",
+    name: "Kubernetes",
     category: "DevOps",
-    icon: "SiGit",
-    level: 90
+    icon: "SiKubernetes",
+    level: 70
+  },
+
+  // Devops Skills
+  {
+    name: "Docker",
+    category: "DevOps",
+    icon: "SiDocker",
+    level: 70
   },
   {
-    name: "Jest",
-    category: "Testing",
-    icon: "SiJest",
-    level: 80
+    name: "GCP",
+    category: "DevOps",
+    icon: "SiGooglecloud",
+    level: 65
   },
   {
-    name: "Cypress",
-    category: "Testing",
-    icon: "SiCypress",
-    level: 75
+    name: "AWS",
+    category: "DevOps",
+    icon: "SiAmazonaws",
+    level: 70
   },
+
+  // Design Skills
   {
     name: "Figma",
     category: "Design",
     icon: "SiFigma",
+    level: 80
+  },
+  {
+    name: "Photoshop",
+    category: "Design",
+    icon: "SiAdobephotoshop",
     level: 70
-  }
+  },
+  
+
+  // CMS Skills
+  {
+    name: "WordPress",
+    category: "CMS",
+    icon: "SiWordpress",
+    level: 80
+  },
+  {
+    name: "Elementor",
+    category: "CMS",
+    icon: "SiElementor",
+    level: 75
+  },
+  
 ];
 
 // Seed the database with sample data
