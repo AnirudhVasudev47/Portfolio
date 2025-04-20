@@ -1,5 +1,13 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Skill as SkillType } from "@shared/schema";
+import { 
+  SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, 
+  SiVuedotjs, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiGraphql,
+  SiGit, SiDocker, SiAmazon, SiFirebase, SiPython, SiJest, SiFigma, SiCypress
+} from 'react-icons/si';
+import { FaCode, FaServer, FaDatabase, FaCogs } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
 const Skills = () => {
   // Fetch skills data from the API
@@ -7,40 +15,44 @@ const Skills = () => {
     queryKey: ['/api/skills'],
   });
   
-  // Map skill categories to icon and color options
-  const getSkillIcon = (name: string, category: string) => {
-    // Map skill names to specific icons (using Remix Icon library)
-    const iconMap: Record<string, string> = {
-      "JavaScript": "ri-javascript-line",
-      "TypeScript": "ri-code-s-slash-line",
-      "React": "ri-reactjs-line",
-      "Vue.js": "ri-vuejs-line",
-      "HTML5": "ri-html5-line",
-      "CSS3": "ri-css3-line",
-      "Tailwind CSS": "ri-css3-line",
-      "Node.js": "ri-nodejs-line",
-      "Express": "ri-server-line",
-      "PostgreSQL": "ri-database-2-line",
-      "MongoDB": "ri-database-2-line",
-      "GraphQL": "ri-code-line",
-      "Docker": "ri-ship-line",
-      "Git": "ri-git-branch-line",
-      "Jest": "ri-test-tube-line",
-      "Cypress": "ri-test-tube-line",
-      "Figma": "ri-pencil-ruler-2-line"
+  // Map skill names to specific React Icons
+  const getSkillIcon = (name: string, category: string): IconType => {
+    // Map skill names to specific icons
+    const iconMap: Record<string, IconType> = {
+      "JavaScript": SiJavascript,
+      "TypeScript": SiTypescript,
+      "React": SiReact,
+      "Vue.js": SiVuedotjs,
+      "HTML5": SiHtml5,
+      "CSS3": SiCss3,
+      "Tailwind CSS": SiTailwindcss,
+      "Node.js": SiNodedotjs,
+      "Express": SiExpress,
+      "PostgreSQL": SiPostgresql,
+      "MongoDB": SiMongodb,
+      "GraphQL": SiGraphql,
+      "Docker": SiDocker,
+      "Git": SiGit,
+      "Jest": SiJest,
+      "Cypress": SiCypress,
+      "Figma": SiFigma,
+      "Python": SiPython,
+      "AWS": SiAmazon,
+      "Firebase": SiFirebase
     };
     
     // Map categories to fallback icons
-    const categoryIcons: Record<string, string> = {
-      "Frontend": "ri-code-s-slash-line",
-      "Backend": "ri-server-line",
-      "DevOps": "ri-settings-line",
-      "Testing": "ri-test-tube-line",
-      "Design": "ri-pencil-ruler-line"
+    const categoryIcons: Record<string, IconType> = {
+      "Frontend": FaCode,
+      "Backend": FaServer,
+      "DevOps": FaCogs,
+      "Database": FaDatabase,
+      "Testing": FaCode,
+      "Design": FaCode
     };
     
     // Return specific icon if available, otherwise use category icon, or default icon
-    return iconMap[name] || categoryIcons[category] || "ri-code-line";
+    return iconMap[name] || categoryIcons[category] || FaCode;
   };
   
   // Map skill categories to colors
@@ -92,7 +104,10 @@ const Skills = () => {
                           {skill.icon ? (
                             <i className={`${skill.icon}`}></i>
                           ) : (
-                            <i className={getSkillIcon(skill.name, skill.category)}></i>
+                            (() => {
+                              const IconComponent = getSkillIcon(skill.name, skill.category);
+                              return <IconComponent size="1.5em" />;
+                            })()
                           )}
                         </div>
                         <h3 className="text-sm md:text-base font-medium">{skill.name}</h3>

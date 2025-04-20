@@ -1,3 +1,5 @@
+import profileImage from '@assets/BAE117E8-52F1-48EB-BCDF-A986FE42D037.jpg';
+
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center pt-24 md:pt-16 pb-20">
@@ -8,12 +10,11 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient rounded-full blur-2xl opacity-20"></div>
               <div className="relative bg-white p-2 rounded-full shadow-xl">
-                <svg className="w-full h-full rounded-full object-cover border-4 border-white text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor" opacity="0.2"/>
-                  <path d="M12.0002 14.5C6.99016 14.5 2.91016 17.86 2.91016 22C2.91016 22.28 3.13016 22.5 3.41016 22.5H20.5902C20.8702 22.5 21.0902 22.28 21.0902 22C21.0902 17.86 17.0102 14.5 12.0002 14.5Z" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M20.5899 22C20.5899 18.13 16.7399 15 11.9999 15C7.25991 15 3.40991 18.13 3.40991 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img 
+                  src={profileImage} 
+                  alt="Anirudh Vasudev" 
+                  className="w-full h-full rounded-full object-cover border-4 border-white"
+                />
               </div>
               <div className="absolute -bottom-2 -right-2 bg-white p-3 rounded-full shadow-lg animate-bounce-slow">
                 <span className="text-primary text-xl"><i className="ri-code-s-slash-line"></i></span>
@@ -69,12 +70,11 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient rounded-full blur-2xl opacity-20"></div>
               <div className="relative bg-white p-2 rounded-full shadow-xl">
-                <svg className="w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4 border-white text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor" opacity="0.2"/>
-                  <path d="M12.0002 14.5C6.99016 14.5 2.91016 17.86 2.91016 22C2.91016 22.28 3.13016 22.5 3.41016 22.5H20.5902C20.8702 22.5 21.0902 22.28 21.0902 22C21.0902 17.86 17.0102 14.5 12.0002 14.5Z" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M20.5899 22C20.5899 18.13 16.7399 15 11.9999 15C7.25991 15 3.40991 18.13 3.40991 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img 
+                  src={profileImage} 
+                  alt="Anirudh Vasudev" 
+                  className="w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4 border-white"
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-full shadow-lg animate-bounce-slow">
                 <span className="text-primary text-2xl"><i className="ri-code-s-slash-line"></i></span>
