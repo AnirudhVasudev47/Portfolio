@@ -69,8 +69,12 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 section">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-gray-50 section relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-primary"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-blue-400"></div>
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
@@ -99,22 +103,22 @@ const Skills = () => {
                     .filter(skill => skill.category === category)
                     .sort((a, b) => (b.level || 0) - (a.level || 0))
                     .map((skill) => (
-                      <div key={skill.id} className="skill-card bg-white rounded-lg shadow p-4 md:p-6 text-center">
-                        <div className={`flex justify-center mb-3 md:mb-4 ${getSkillColor(skill.category)} text-2xl md:text-3xl`}>
-                          {skill.icon ? (
-                            <i className={`${skill.icon}`}></i>
-                          ) : (
-                            (() => {
-                              const IconComponent = getSkillIcon(skill.name, skill.category);
-                              return <IconComponent size="1.5em" />;
-                            })()
-                          )}
+                      <div key={skill.id} className="skill-card bg-white rounded-lg shadow p-4 md:p-6 flex flex-col items-center">
+                        <div className="mb-4">
+                          {(() => {
+                            const IconComponent = getSkillIcon(skill.name, skill.category);
+                            return (
+                              <div className="flex justify-center items-center w-16 h-16 rounded-full bg-blue-50 p-3">
+                                <IconComponent className={`${getSkillColor(skill.category)} text-3xl md:text-4xl`} />
+                              </div>
+                            );
+                          })()}
                         </div>
-                        <h3 className="text-sm md:text-base font-medium">{skill.name}</h3>
+                        <h3 className="text-base md:text-lg font-medium mb-3">{skill.name}</h3>
                         {skill.level !== null && skill.level !== undefined && (
-                          <div className="mt-2 w-full bg-gray-200 rounded-full h-1.5">
+                          <div className="w-full bg-gray-200 rounded-full h-2 mt-auto">
                             <div 
-                              className="bg-primary h-1.5 rounded-full" 
+                              className="bg-primary h-2 rounded-full" 
                               style={{ width: `${skill.level}%` }}
                             ></div>
                           </div>
