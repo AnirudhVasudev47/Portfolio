@@ -122,28 +122,7 @@ body {
 /* Timeline styles */
 .timeline-container {
   position: relative;
-}
-
-.timeline-container::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  background-color: #E5E7EB;
-  top: 0;
-  bottom: 0;
-  left: 19px;
-  margin-left: -1px;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 19px;
-  width: 16px;
-  height: 16px;
-  margin-left: -8px;
-  background-color: var(--color-primary);
-  border-radius: 50%;
-  z-index: 1;
+  padding-top: 1rem;
 }
 
 /* Dark mode styles */
@@ -174,17 +153,15 @@ body {
   background-color: #1F2937;
 }
 
-.dark-mode .timeline-container::after {
-  background-color: #4B5563;
-}
-
 /* Responsive adjustments */
-@media (min-width: 768px) {
-  .timeline-container::after {
-    left: 50%;
+@media (max-width: 767px) {
+  body {
+    padding-top: 4rem; /* Add space for the fixed header */
   }
-  .timeline-dot {
-    left: 50%;
+  
+  .section {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
