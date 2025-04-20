@@ -22,13 +22,13 @@ const Skills = () => {
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
           {skills.map((skill, index) => (
-            <div key={index} className="skill-card bg-white rounded-lg shadow p-6 text-center">
-              <div className={`flex justify-center mb-4 ${skill.color} text-3xl`}>
+            <div key={index} className="skill-card bg-white rounded-lg shadow p-4 md:p-6 text-center">
+              <div className={`flex justify-center mb-3 md:mb-4 ${skill.color} text-2xl md:text-3xl`}>
                 <i className={skill.icon}></i>
               </div>
-              <h3 className="text-lg font-medium">{skill.name}</h3>
+              <h3 className="text-sm md:text-lg font-medium">{skill.name}</h3>
             </div>
           ))}
         </div>

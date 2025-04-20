@@ -48,26 +48,26 @@ const Projects = () => {
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div key={index} className="project-card bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
-              <div className="h-48 overflow-hidden">
+              <div className="h-40 md:h-48 overflow-hidden">
                 {getProjectImage(project.image)}
               </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4 flex-1">
+              <div className="p-4 md:p-6 flex-1 flex flex-col">
+                <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-gray-600 text-sm md:text-base mb-3 md:mb-4 flex-1">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex justify-between mt-auto">
-                  <a href="#" className="text-primary hover:text-primary/80 font-medium transition-colors">
+                <div className="flex justify-between items-center mt-auto pt-2 border-t border-gray-100">
+                  <a href="#" className="text-primary hover:text-primary/80 text-sm md:text-base font-medium transition-colors">
                     View Details
                   </a>
                   <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">
