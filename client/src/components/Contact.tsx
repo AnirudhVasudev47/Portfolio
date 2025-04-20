@@ -1,7 +1,26 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { apiRequest } from '../lib/queryClient';
-import { insertMessageSchema } from '@shared/schema';
+import { Message } from '@shared/schema';
+
+// The API request function
+const apiRequest = async (
+  url: string,
+  options?: RequestInit
+): Promise<any> => {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      ...(options?.headers || {}),
+      'Content-Type': 'application/json'
+    }
+  });
+  
+  if (!response.ok) {
+    throw new Error(`API request failed: ${response.status}`);
+  }
+  
+  return response.json();
+};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,10 +40,10 @@ const Contact = () => {
   
   // Create mutation for sending messages to the API
   const sendMessageMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
+    mutationFn: (data: typeof formData) => {
       return apiRequest('/api/messages', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       });
     },
     onSuccess: () => {
@@ -200,8 +219,31 @@ const Contact = () => {
                 {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
               </div>
               
-              <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors">
-                Send Message
+              {submitStatus === 'success' && (
+                <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg">
+                  <p className="font-medium">Your message has been sent successfully!</p>
+                  <p className="text-sm mt-1">I'll get back to you as soon as possible.</p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                  <p className="font-medium">Failed to send message.</p>
+                  <p className="text-sm mt-1">Please try again later or contact me directly via email.</p>
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors flex justify-center items-center"
+                disabled={sendMessageMutation.isPending}
+              >
+                {sendMessageMutation.isPending ? (
+                  <>
+                    <span className="mr-2 animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></span>
+                    Sending...
+                  </>
+                ) : 'Send Message'}
               </button>
             </form>
           </div>
