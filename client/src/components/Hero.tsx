@@ -1,4 +1,4 @@
-import profileImage from '@assets/BAE117E8-52F1-48EB-BCDF-A986FE42D037.jpg';
+import profileImage from '@assets/BAE117E8-52F1-48EB-BCDF-A986FE42D037 2.jpg';
 import { FaCode } from 'react-icons/fa';
 
 const Hero = () => {
