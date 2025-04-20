@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#home" className="text-2xl font-bold">Anirudh<span className="text-primary">.dev</span></a>
+            <a href="#home" className="text-2xl font-bold text-black">Anirudh<span className="text-primary">.dev</span></a>
             <p className="mt-2 text-gray-400">Full Stack Developer & Backend Specialist</p>
           </div>
           
