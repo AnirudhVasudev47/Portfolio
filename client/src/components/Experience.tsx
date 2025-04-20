@@ -1,46 +1,30 @@
+import { useQuery } from "@tanstack/react-query";
+import { Experience as ExperienceType } from "@shared/schema";
+
 const Experience = () => {
-  const experiences = [
-    {
-      company: "Deloitte",
-      period: "2021 - Present",
-      title: "Senior Developer",
-      description:
-        "Led requirement analysis for large-scale enterprise applications, focusing on real-time systems and performance optimization.",
-      skills: [
-        "Enterprise Systems",
-        "Performance Optimization",
-        "Real-time Processing",
-      ],
-    },
-    {
-      company: "BHIVE Alts",
-      period: "2020 - 2021",
-      title: "Full Stack Developer",
-      description:
-        "Developed and maintained the investor application platform, implementing a payment module that processed over ₹60 Cr in transactions with robust error handling and security features.",
-      skills: [
-        "Payment Systems",
-        "Financial Security",
-        "High-volume Processing",
-      ],
-    },
-    {
-      company: "Webbirth",
-      period: "2019 - 2020",
-      title: "Web & Mobile Developer",
-      description:
-        "Built cross-platform applications using React Native on the frontend and Node.js for backend services. Integrated with Laravel systems and implemented CI/CD pipelines for streamlined deployments.",
-      skills: ["React Native", "Node.js", "Laravel", "CI/CD"],
-    },
-    {
-      company: "Civil Engineering System",
-      period: "2018 - 2019",
-      title: "Full Stack Developer",
-      description:
-        "Designed and implemented a comprehensive system with PHP backend and React UI for civil engineering applications. Focused on data visualization and complex calculations for engineering models.",
-      skills: ["PHP", "React UI", "Data Visualization"],
-    },
-  ];
+  // Fetch experiences data from the API
+  const { data: experiences = [], isLoading, error } = useQuery<ExperienceType[]>({
+    queryKey: ['/api/experiences'],
+  });
+  
+  // Function to format period from startDate and endDate
+  const formatPeriod = (startDate: string, endDate?: string | null) => {
+    // Extract year and month from date string (format: YYYY-MM)
+    const formatDate = (dateStr: string) => {
+      if (dateStr === 'Present') return 'Present';
+      
+      const [year, month] = dateStr.split('-');
+      if (!month) return year;
+      
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${monthNames[parseInt(month) - 1]} ${year}`;
+    };
+    
+    const start = formatDate(startDate);
+    const end = endDate ? formatDate(endDate) : 'Present';
+    
+    return `${start} - ${end}`;
+  };
 
   return (
     <section id="experience" className="py-20 section">
@@ -52,43 +36,63 @@ const Experience = () => {
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto relative ">
-          {/* Vertical center line that connects all dots */}
-          <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200 z-0"></div>
+        {isLoading && (
+          <div className="flex justify-center items-center h-40">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        )}
+        
+        {error && (
+          <div className="text-center text-red-500 my-8">
+            <p>Failed to load experience data. Please try again later.</p>
+          </div>
+        )}
+        
+        {!isLoading && !error && experiences.length > 0 && (
+          <div className="max-w-4xl mx-auto relative">
+            {/* Vertical center line that connects all dots */}
+            <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200 z-0"></div>
 
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative mb-20 md:mb-16 pt-2">
-              {/* Timeline dot positioned in the center */}
-              <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-7 h-7 bg-primary rounded-full top-8 z-10 border-2 border-white"></div>
+            {experiences.map((exp, index) => (
+              <div key={exp.id || index} className="relative mb-20 md:mb-16 pt-2">
+                {/* Timeline dot positioned in the center */}
+                <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-7 h-7 bg-primary rounded-full top-8 z-10 border-2 border-white"></div>
 
-              <div className="flex flex-col md:flex-row flex-auto ">
-                <div className="flex-1 py-8 items-center justify-center text-center order-1 ">
-                  <h3 className="text-xl font-bold text-primary">
-                    {exp.company}
-                  </h3>
-                  <p className="text-gray-600 mb-1">{exp.period}</p>
-                  <p className="font-medium">{exp.title}</p>
-                </div>
+                <div className="flex flex-col md:flex-row flex-auto">
+                  <div className="flex-1 py-8 items-center justify-center text-center order-1">
+                    <h3 className="text-xl font-bold text-primary">
+                      {exp.company}
+                    </h3>
+                    <p className="text-gray-600 mb-1">{formatPeriod(exp.startDate, exp.endDate)}</p>
+                    <p className="font-medium">{exp.position}</p>
+                  </div>
 
-                <div className="flex-1 md:pl-24 items-center justify-center order-2">
-                  <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <p className="text-gray-700 mb-4">{exp.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                  <div className="flex-1 md:pl-24 items-center justify-center order-2">
+                    <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                      <p className="text-gray-700 mb-4">{exp.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.skills && exp.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+        
+        {!isLoading && !error && experiences.length === 0 && (
+          <div className="text-center text-gray-500 my-8">
+            <p>No experience data found.</p>
+          </div>
+        )}
       </div>
     </section>
   );
