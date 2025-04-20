@@ -13,6 +13,11 @@ A modern, interactive personal portfolio website showcasing Anirudh Vasudev's pr
 - [Database Schema](#database-schema)
 - [API Endpoints](#api-endpoints)
 - [Setup and Installation](#setup-and-installation)
+- [Running the Application](#running-the-application)
+  - [Local Development](#local-development)
+  - [Production Deployment](#production-deployment)
+  - [Using with Replit](#using-with-replit)
+  - [Troubleshooting](#troubleshooting)
 - [Development](#development)
 - [Deployment](#deployment)
 - [Future Enhancements](#future-enhancements)
@@ -187,6 +192,65 @@ The application uses the following database models:
    ```bash
    npm run dev
    ```
+
+## Running the Application
+
+### Local Development
+
+1. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   This will start both the frontend and backend servers simultaneously. The application will be available at `http://localhost:5000`.
+
+2. **Access the application**
+   Open your browser and navigate to `http://localhost:5000` to view the portfolio website.
+
+3. **API access**
+   The API endpoints are available at `http://localhost:5000/api/*` for testing and development purposes.
+
+### Production Deployment
+
+For production environments:
+
+1. **Build the application**
+   ```bash
+   npm run build
+   ```
+
+2. **Start the production server**
+   ```bash
+   npm start
+   ```
+
+### Using with Replit
+
+This application is designed to work seamlessly with Replit:
+
+1. **Fork the Repl**
+   Fork this Repl to your own Replit account.
+
+2. **Set up secrets**
+   In the Replit environment, add the following secrets:
+   - `DATABASE_URL`: Your PostgreSQL database URL (this is automatically set up when you create a database in Replit)
+
+3. **Run the application**
+   Click the "Run" button in Replit. The application will automatically start and be available at your Replit URL.
+
+4. **Database setup**
+   If running for the first time, open the Shell and run:
+   ```bash
+   npm run db:push
+   npm run db:seed
+   ```
+   to set up the database schema and seed it with initial data.
+
+### Troubleshooting
+
+- **Database connection issues**: Ensure your PostgreSQL database is running and the connection string in the `.env` file is correct.
+- **Port conflicts**: If port 5000 is already in use, you can modify the port in `server/index.ts`.
+- **Missing dependencies**: Run `npm install` to ensure all dependencies are properly installed.
+- **Build errors**: Check the console for specific error messages. Common issues include TypeScript errors that need to be fixed before building.
 
 ## Development
 
