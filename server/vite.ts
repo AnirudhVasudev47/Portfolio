@@ -23,7 +23,7 @@ export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
-    allowedHosts: ['*'],
+    allowedHosts: ['localhost', 'https://portfolio-weld-eight-96.vercel.app/'],
   };
 
   const vite = await createViteServer({
