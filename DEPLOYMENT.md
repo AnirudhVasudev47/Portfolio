@@ -1,10 +1,10 @@
-# Deploying Your Portfolio Website to Vercel
+# Step-by-Step Guide to Deploy Your Portfolio on Vercel
 
-This comprehensive guide will help you deploy Anirudh Vasudev's portfolio website to Vercel, providing a professional web presence with automatic deployments and seamless database integration.
+This updated guide provides detailed instructions to successfully deploy your portfolio website to Vercel, addressing common deployment issues.
 
 ## Prerequisites
 
-1. A [Vercel](https://vercel.com) account (you can sign up for free with your GitHub, GitLab, or Bitbucket account)
+1. A [Vercel](https://vercel.com) account (sign up for free with your GitHub, GitLab, or Bitbucket account)
 2. A PostgreSQL database (recommended: [Neon](https://neon.tech) provides a generous free tier with PostgreSQL)
 3. Your project code in a Git repository (GitHub, GitLab, or Bitbucket)
 
@@ -12,11 +12,11 @@ This comprehensive guide will help you deploy Anirudh Vasudev's portfolio websit
 
 ### Step 1: Set Up Your PostgreSQL Database
 
-1. Sign up for a free account at [Neon](https://neon.tech) or any similar PostgreSQL provider
+1. Sign up for a free account at [Neon](https://neon.tech) or similar PostgreSQL provider
 2. Create a new project in the dashboard
 3. Create a new database for your portfolio
-4. Find and copy your connection string from the dashboard (typically looks like `postgresql://username:password@hostname:port/database`)
-5. Make sure the connection string includes SSL parameters if required by your provider
+4. Copy your connection string (typically looks like `postgresql://username:password@hostname:port/database?sslmode=require`)
+5. **Important:** Make sure your connection string includes `?sslmode=require` at the end
 
 ### Step 2: Import Your Project to Vercel
 
@@ -124,13 +124,45 @@ To track visitor statistics:
 
 ## Troubleshooting Common Issues
 
+### 404 NOT_FOUND Error
+
+If you see a 404 NOT_FOUND error after deployment (like in the screenshot):
+
+1. **Check your vercel.json file**: 
+   ```json
+   {
+     "version": 2,
+     "framework": "vite",
+     "functions": {
+       "api/index.js": {
+         "memory": 1024,
+         "maxDuration": 10
+       }
+     },
+     "routes": [
+       { "src": "/api/(.*)", "dest": "/api" },
+       { "handle": "filesystem" },
+       { "src": "/assets/(.*)", "dest": "/assets/$1" },
+       { "src": "/(.*)", "dest": "/index.html" }
+     ]
+   }
+   ```
+
+2. **Ensure you have an api/index.js file**: This file should contain your API logic for Vercel's serverless functions
+
+3. **Redeploy your application**: Make a small change and push it to trigger a new deployment
+
+4. **Check output directory**: Make sure your build is outputting to the `dist` directory
+
+5. **Verify project.json build settings**: Your `vercel-build` script should output to the correct location
+
 ### Database Connection Problems
 
 If your application can't connect to the database:
 
 1. Verify your `DATABASE_URL` is correct in Vercel's environment variables
-2. Check if your database provider requires SSL (update connection string with `?sslmode=require` if needed)
-3. Ensure your database allows connections from Vercel's IP range (check your provider's documentation)
+2. **IMPORTANT**: Make sure you append `?sslmode=require` to your Neon database connection string
+3. Check if your database provider's firewall allows connections from Vercel (Neon allows connections from anywhere by default)
 
 ### Build Failures
 
@@ -138,17 +170,17 @@ If your build fails during deployment:
 
 1. Check the build logs in Vercel for specific error messages
 2. Common issues include:
-   - TypeScript errors that need to be fixed in your code
+   - TypeScript errors in your code
    - Missing dependencies in package.json
-   - Unsupported Node.js versions (adjust in Vercel settings if needed)
+   - Conflicts with Node.js versions (try specifying Node.js 18.x in Vercel settings)
 
 ### API Routes Not Working
 
 If your API endpoints return errors:
 
-1. Check that your vercel.json file correctly routes API requests to your server
-2. Verify server logs in the Functions tab of Vercel dashboard
-3. Test your database connection within a serverless function
+1. Check Function logs in Vercel dashboard
+2. Verify your database connection is working in the serverless environment
+3. Test API endpoints individually using tools like Postman or curl
 
 ## Support and Resources
 
