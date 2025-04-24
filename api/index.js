@@ -1,134 +1,179 @@
-// This is the main API handler for Vercel
-import express from 'express';
-import { Pool, neonConfig } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-serverless';
-import ws from 'ws';
-import * as schema from '../shared/schema.js';
-import dotenv from 'dotenv';
+// api/index.js - Vercel compatible API handler for serverless deployment
+const express = require('express');
+const { Pool, neonConfig } = require('@neondatabase/serverless');
+const { drizzle } = require('drizzle-orm/neon-serverless');
+const { eq } = require('drizzle-orm');
+const ws = require('ws');
 
 // Setup for serverless environment
-dotenv.config();
 neonConfig.webSocketConstructor = ws;
 
-// Database connection
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL must be set");
-}
+// Define schema directly to avoid module import issues
+const { pgTable, text, serial, timestamp, boolean, array } = require('drizzle-orm/pg-core');
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const db = drizzle({ client: pool, schema });
+// Define tables directly
+const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  username: text("username").notNull().unique(),
+  password: text("password").notNull(),
+  firstName: text("first_name"),
+  lastName: text("last_name"),
+  email: text("email"),
+  role: text("role").default("user"),
+  createdAt: timestamp("created_at").defaultNow()
+});
+
+const projects = pgTable("projects", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  image: text("image"),
+  technologies: array(text("technologies")),
+  githubUrl: text("github_url"),
+  demoUrl: text("demo_url"),
+  featured: boolean("featured").default(false),
+  createdAt: timestamp("created_at").defaultNow()
+});
+
+const experiences = pgTable("experiences", {
+  id: serial("id").primaryKey(),
+  company: text("company").notNull(),
+  position: text("position").notNull(),
+  startDate: text("start_date").notNull(),
+  endDate: text("end_date"),
+  description: text("description").notNull(),
+  logoUrl: text("logo_url"),
+  order: serial("order"),
+});
+
+const skills = pgTable("skills", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  category: text("category").notNull(),
+  proficiency: serial("proficiency").notNull(),
+  icon: text("icon"),
+});
+
+const messages = pgTable("messages", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  subject: text("subject"),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  read: boolean("read").default(false),
+});
 
 // Create Express app
 const app = express();
 app.use(express.json());
 
-// API Routes
-// Projects endpoints
-app.get('/api/projects', async (req, res) => {
-  try {
-    const projects = await db.select().from(schema.projects);
-    res.json(projects);
-  } catch (error) {
-    console.error('Error fetching projects:', error);
-    res.status(500).json({ error: 'Failed to fetch projects' });
+// API handler for serverless function
+const handler = async (req, res) => {
+  // Check for database URL
+  if (!process.env.DATABASE_URL) {
+    return res.status(500).json({ error: "DATABASE_URL environment variable is not set" });
   }
-});
 
-app.get('/api/projects/:id', async (req, res) => {
   try {
-    const id = parseInt(req.params.id);
-    const [project] = await db.select().from(schema.projects).where(schema.projects.id.equals(id));
+    // Setup database connection
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const db = drizzle(pool);
+
+    // Handling different API routes
+    const { pathname } = new URL(req.url, `http://${req.headers.host}`);
     
-    if (!project) {
-      return res.status(404).json({ error: 'Project not found' });
+    // Projects endpoints
+    if (pathname === '/api/projects' && req.method === 'GET') {
+      const projects_data = await db.select().from(projects);
+      return res.status(200).json(projects_data);
     }
     
-    res.json(project);
-  } catch (error) {
-    console.error('Error fetching project:', error);
-    res.status(500).json({ error: 'Failed to fetch project' });
-  }
-});
-
-// Skills endpoints
-app.get('/api/skills', async (req, res) => {
-  try {
-    const skills = await db.select().from(schema.skills);
-    res.json(skills);
-  } catch (error) {
-    console.error('Error fetching skills:', error);
-    res.status(500).json({ error: 'Failed to fetch skills' });
-  }
-});
-
-app.get('/api/skills/:id', async (req, res) => {
-  try {
-    const id = parseInt(req.params.id);
-    const [skill] = await db.select().from(schema.skills).where(schema.skills.id.equals(id));
-    
-    if (!skill) {
-      return res.status(404).json({ error: 'Skill not found' });
+    // Get project by ID
+    if (pathname.match(/^\/api\/projects\/\d+$/) && req.method === 'GET') {
+      const id = parseInt(pathname.split('/').pop());
+      const [project] = await db.select().from(projects).where(eq(projects.id, id));
+      
+      if (!project) {
+        return res.status(404).json({ error: 'Project not found' });
+      }
+      
+      return res.status(200).json(project);
     }
     
-    res.json(skill);
-  } catch (error) {
-    console.error('Error fetching skill:', error);
-    res.status(500).json({ error: 'Failed to fetch skill' });
-  }
-});
-
-// Experiences endpoints
-app.get('/api/experiences', async (req, res) => {
-  try {
-    const experiences = await db.select().from(schema.experiences);
-    res.json(experiences);
-  } catch (error) {
-    console.error('Error fetching experiences:', error);
-    res.status(500).json({ error: 'Failed to fetch experiences' });
-  }
-});
-
-app.get('/api/experiences/:id', async (req, res) => {
-  try {
-    const id = parseInt(req.params.id);
-    const [experience] = await db.select().from(schema.experiences).where(schema.experiences.id.equals(id));
-    
-    if (!experience) {
-      return res.status(404).json({ error: 'Experience not found' });
+    // Skills endpoints
+    if (pathname === '/api/skills' && req.method === 'GET') {
+      const skills_data = await db.select().from(skills);
+      return res.status(200).json(skills_data);
     }
     
-    res.json(experience);
-  } catch (error) {
-    console.error('Error fetching experience:', error);
-    res.status(500).json({ error: 'Failed to fetch experience' });
-  }
-});
-
-// Messages endpoint
-app.post('/api/messages', async (req, res) => {
-  try {
-    const { name, email, subject, message } = req.body;
-    
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Name, email, and message are required' });
+    // Get skill by ID
+    if (pathname.match(/^\/api\/skills\/\d+$/) && req.method === 'GET') {
+      const id = parseInt(pathname.split('/').pop());
+      const [skill] = await db.select().from(skills).where(eq(skills.id, id));
+      
+      if (!skill) {
+        return res.status(404).json({ error: 'Skill not found' });
+      }
+      
+      return res.status(200).json(skill);
     }
     
-    const newMessage = {
-      name,
-      email,
-      subject: subject || '',
-      message,
-      createdAt: new Date(),
-      read: false
-    };
+    // Experiences endpoints
+    if (pathname === '/api/experiences' && req.method === 'GET') {
+      const experiences_data = await db.select().from(experiences);
+      return res.status(200).json(experiences_data);
+    }
     
-    const [createdMessage] = await db.insert(schema.messages).values(newMessage).returning();
-    res.status(201).json(createdMessage);
+    // Get experience by ID
+    if (pathname.match(/^\/api\/experiences\/\d+$/) && req.method === 'GET') {
+      const id = parseInt(pathname.split('/').pop());
+      const [experience] = await db.select().from(experiences).where(eq(experiences.id, id));
+      
+      if (!experience) {
+        return res.status(404).json({ error: 'Experience not found' });
+      }
+      
+      return res.status(200).json(experience);
+    }
+    
+    // Messages endpoint
+    if (pathname === '/api/messages' && req.method === 'POST') {
+      const { name, email, subject, message } = req.body;
+      
+      if (!name || !email || !message) {
+        return res.status(400).json({ error: 'Name, email, and message are required' });
+      }
+      
+      const newMessage = {
+        name,
+        email,
+        subject: subject || '',
+        message,
+        createdAt: new Date(),
+        read: false
+      };
+      
+      const [createdMessage] = await db.insert(messages).values(newMessage).returning();
+      return res.status(201).json(createdMessage);
+    }
+    
+    // Route not found
+    return res.status(404).json({ error: 'API endpoint not found' });
   } catch (error) {
-    console.error('Error creating message:', error);
-    res.status(500).json({ error: 'Failed to create message' });
+    console.error('API error:', error);
+    return res.status(500).json({ error: 'Internal server error', details: error.message });
+  } finally {
+    // Ensure connection is closed in serverless environment
+    try {
+      pool?.end();
+    } catch (e) {
+      console.error('Error closing pool:', e);
+    }
   }
-});
+};
 
 // Export for serverless use
-export default app;
+module.exports = (req, res) => {
+  app(req, res, () => handler(req, res));
+};
