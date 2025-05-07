@@ -20,14 +20,14 @@
     "name": "React",
     "category": "Frontend",
     "icon": "SiReact",
-    "level": 90,
+    "level": 95,
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
   {
     "id": 4,
-    "name": "Next.js",
+    "name": "React Native",
     "category": "Frontend",
-    "icon": "SiNextdotjs",
+    "icon": "SiReact",
     "level": 85,
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
@@ -57,6 +57,30 @@
   },
   {
     "id": 8,
+    "name": "Bootstrap",
+    "category": "Frontend",
+    "icon": "SiBootstrap",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Redux",
+    "category": "Frontend",
+    "icon": "SiRedux",
+    "level": 85,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "name": "RESTful APIs",
+    "category": "Frontend",
+    "icon": "SiPostman",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 11,
     "name": "Node.js",
     "category": "Backend",
     "icon": "SiNodedotjs",
@@ -64,7 +88,7 @@
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
   {
-    "id": 9,
+    "id": 12,
     "name": "Express",
     "category": "Backend",
     "icon": "SiExpress",
@@ -72,23 +96,63 @@
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
   {
-    "id": 10,
-    "name": "MongoDB",
-    "category": "Backend",
-    "icon": "SiMongodb",
-    "level": 85,
-    "createdAt": "2023-01-01T00:00:00.000Z"
-  },
-  {
-    "id": 11,
+    "id": 13,
     "name": "MySQL",
     "category": "Backend",
     "icon": "SiMysql",
+    "level": 80,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "name": "PostgreSQL",
+    "category": "Backend",
+    "icon": "SiPostgresql",
     "level": 75,
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
   {
-    "id": 12,
+    "id": 15,
+    "name": "NoSQL",
+    "category": "Backend",
+    "icon": "SiMongodb",
+    "level": 80,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 16,
+    "name": "Firebase",
+    "category": "Backend",
+    "icon": "SiFirebase",
+    "level": 85,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 17,
+    "name": "Laravel",
+    "category": "Backend",
+    "icon": "SiLaravel",
+    "level": 70,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 18,
+    "name": "Microservices",
+    "category": "Backend",
+    "icon": "SiApachekafka",
+    "level": 75,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 19,
+    "name": "Serverless",
+    "category": "Backend",
+    "icon": "SiAmazonaws",
+    "level": 75,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 20,
     "name": "Git",
     "category": "DevOps",
     "icon": "SiGit",
@@ -96,42 +160,26 @@
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
   {
-    "id": 13,
-    "name": "Docker",
+    "id": 21,
+    "name": "GitHub",
     "category": "DevOps",
-    "icon": "SiDocker",
+    "icon": "SiGithub",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 22,
+    "name": "AWS",
+    "category": "DevOps",
+    "icon": "SiAmazonaws",
     "level": 75,
     "createdAt": "2023-01-01T00:00:00.000Z"
   },
   {
-    "id": 14,
-    "name": "Kubernetes",
-    "category": "DevOps",
-    "icon": "SiKubernetes",
-    "level": 70,
-    "createdAt": "2023-01-01T00:00:00.000Z"
-  },
-  {
-    "id": 15,
-    "name": "AWS",
-    "category": "DevOps",
-    "icon": "SiAmazonaws",
-    "level": 70,
-    "createdAt": "2023-01-01T00:00:00.000Z"
-  },
-  {
-    "id": 16,
+    "id": 23,
     "name": "Figma",
     "category": "Design",
     "icon": "SiFigma",
-    "level": 80,
-    "createdAt": "2023-01-01T00:00:00.000Z"
-  },
-  {
-    "id": 17,
-    "name": "WordPress",
-    "category": "CMS",
-    "icon": "SiWordpress",
     "level": 80,
     "createdAt": "2023-01-01T00:00:00.000Z"
   }

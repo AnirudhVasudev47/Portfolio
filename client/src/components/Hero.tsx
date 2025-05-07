@@ -1,4 +1,4 @@
-import profileImage from '@assets/BAE117E8-52F1-48EB-BCDF-A986FE42D037 2.jpg';
+import profileImage from '../attached_assets/profile.jpg';
 import { FaCode } from 'react-icons/fa';
 import ResumeDownload from './ResumeDownload';
 
@@ -24,14 +24,14 @@ const Hero = () => {
               </span>
             </div>
           </div>
-          
+
           <div className="animate-fade-in max-w-3xl">
             <p className="text-primary font-mono text-lg mb-3">Hi there, I'm</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Anirudh Vasudev
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-900 font-semibold mb-6">
-              Full Stack Developer & Backend Optimization Specialist
+              Technical Lead – Full Stack Developer | React & Node.js | Backend Optimization
             </h2>
             <p className="text-base md:text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
               I build scalable, efficient, and user-friendly web applications with a focus on optimized backend systems and seamless frontend experiences.
@@ -50,10 +50,10 @@ const Hero = () => {
                 View My Work
               </a>
             </div>
-            
+
             {/* Resume Download Button */}
             <ResumeDownload />
-            
+
             <div className="flex justify-center mt-10 space-x-5">
               <a href="https://linkedin.com/in/anirudh-vasudev" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
                 <i className="ri-linkedin-fill text-2xl"></i>

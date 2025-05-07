@@ -21,14 +21,16 @@ const About = () => {
 
           <div className="md:w-1/2">
             <h3 className="text-2xl font-bold mb-4 text-primary">
-              Full Stack Developer with a Backend Passion
+              Technical Lead & Full Stack Developer
             </h3>
             <p className="text-lg text-gray-700 mb-6">
-              With over 4 years of experience in software development, I've
-              cultivated a deep passion for building efficient, scalable, and
-              robust applications. My journey has taken me through various tech
-              stacks and industries, but my core focus remains on creating
-              systems that deliver exceptional performance.
+              A software development professional with over 4 years of experience in full stack 
+              development and backend optimization, expert in React and Node.js. 
+            </p>
+            <p className="text-lg text-gray-700 mb-6">
+              My key achievements include leading the development of a payment module 
+              that contributed to generating ₹60 crore in revenue at BHIVE Alts, and 
+              improving project alignment by ensuring 100% requirement accuracy at Deloitte.
             </p>
             <p className="text-lg text-gray-700 mb-6">
               I specialize in developing full-stack applications with React on

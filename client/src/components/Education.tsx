@@ -1,16 +1,16 @@
 const Education = () => {
   const education = [
     {
-      degree: "Master's in Data Science",
+      degree: "Master's Degree, Data Science",
       institution: "IU International University of Applied Sciences",
-      status: "Ongoing",
-      description: "Focusing on advanced data analysis, machine learning algorithms, and their application in solving real-world problems. Currently maintaining a strong academic record while working full-time."
+      status: "Oct 2024 - Oct 2025",
+      description: "Focusing on advanced data analysis, machine learning algorithms, and their application in solving real-world problems."
     },
     {
-      degree: "BTech in Computer Science",
-      institution: "Presidency University",
-      status: "Completed 2018",
-      description: "Comprehensive education in computer science fundamentals, algorithms, data structures, and software engineering principles. Graduated with honors and completed several notable projects."
+      degree: "Bachelor of Technology - BTech, Computer Science",
+      institution: "Presidency University, Bangalore",
+      status: "Jan 2017 - Dec 2021",
+      description: "Comprehensive education in computer science fundamentals, algorithms, data structures, and software engineering principles."
     }
   ];
 
@@ -21,7 +21,7 @@ const Education = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Education</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
           {education.map((edu, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-6 mb-8 hover:shadow-lg transition-shadow">
