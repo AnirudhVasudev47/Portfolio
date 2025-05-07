@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "company": "Tech Innovations Ltd",
+    "position": "Senior Frontend Developer",
+    "startDate": "2022-03",
+    "endDate": "Present",
+    "description": "Lead the frontend development team in building modern, responsive web applications using React and TypeScript. Implemented CI/CD pipelines and improved code quality through automated testing.",
+    "skills": ["React", "TypeScript", "Redux", "Jest", "CI/CD", "Team Leadership"],
+    "order": 1,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "company": "Webscale Solutions",
+    "position": "Full Stack Developer",
+    "startDate": "2019-06",
+    "endDate": "2022-02",
+    "description": "Developed and maintained various web applications using React, Node.js and PostgreSQL. Collaborated with UX/UI designers to implement responsive designs and ensure accessibility compliance.",
+    "skills": ["React", "Node.js", "Express", "PostgreSQL", "Docker", "Agile"],
+    "order": 2,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "company": "Digital Creators Agency",
+    "position": "Frontend Developer",
+    "startDate": "2017-09",
+    "endDate": "2019-05",
+    "description": "Created responsive and accessible websites for clients in various industries. Worked closely with designers to translate mockups into functional web pages.",
+    "skills": ["JavaScript", "HTML", "CSS", "Responsive Design", "jQuery"],
+    "order": 3,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  }
+]

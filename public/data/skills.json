@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "JavaScript",
+    "category": "Frontend",
+    "icon": "SiJavascript",
+    "level": 95,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "TypeScript",
+    "category": "Frontend",
+    "icon": "SiTypescript",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "React",
+    "category": "Frontend",
+    "icon": "SiReact",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "Next.js",
+    "category": "Frontend",
+    "icon": "SiNextdotjs",
+    "level": 85,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "HTML5",
+    "category": "Frontend",
+    "icon": "SiHtml5",
+    "level": 95,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "name": "CSS3",
+    "category": "Frontend",
+    "icon": "SiCss3",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Tailwind CSS",
+    "category": "Frontend",
+    "icon": "SiTailwindcss",
+    "level": 85,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "name": "Node.js",
+    "category": "Backend",
+    "icon": "SiNodedotjs",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Express",
+    "category": "Backend",
+    "icon": "SiExpress",
+    "level": 85,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "name": "MongoDB",
+    "category": "Backend",
+    "icon": "SiMongodb",
+    "level": 85,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "name": "MySQL",
+    "category": "Backend",
+    "icon": "SiMysql",
+    "level": 75,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "name": "Git",
+    "category": "DevOps",
+    "icon": "SiGit",
+    "level": 90,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 13,
+    "name": "Docker",
+    "category": "DevOps",
+    "icon": "SiDocker",
+    "level": 75,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "name": "Kubernetes",
+    "category": "DevOps",
+    "icon": "SiKubernetes",
+    "level": 70,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 15,
+    "name": "AWS",
+    "category": "DevOps",
+    "icon": "SiAmazonaws",
+    "level": 70,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 16,
+    "name": "Figma",
+    "category": "Design",
+    "icon": "SiFigma",
+    "level": 80,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 17,
+    "name": "WordPress",
+    "category": "CMS",
+    "icon": "SiWordpress",
+    "level": 80,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  }
+]

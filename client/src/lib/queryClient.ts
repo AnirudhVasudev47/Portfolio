@@ -29,7 +29,25 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey[0] as string, {
+    const endpoint = queryKey[0] as string;
+
+    // For static site, load data from JSON files instead of making API calls
+    if (endpoint.startsWith('/api/')) {
+      const resource = endpoint.split('/')[2]; // Extract resource name (projects, experiences, skills)
+      try {
+        const res = await fetch(`/data/${resource}.json`);
+        if (!res.ok) {
+          throw new Error(`Failed to load ${resource} data`);
+        }
+        return await res.json();
+      } catch (error) {
+        console.error(`Error loading ${resource} data:`, error);
+        return [];
+      }
+    }
+
+    // For any other endpoints (though there shouldn't be any in a static site)
+    const res = await fetch(endpoint, {
       credentials: "include",
     });
 

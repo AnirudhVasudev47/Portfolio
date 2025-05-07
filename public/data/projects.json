@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Personal Portfolio Website",
+    "description": "A responsive personal portfolio website built with React, TypeScript and Tailwind CSS.",
+    "image": "/images/projects/portfolio.jpg",
+    "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
+    "githubUrl": "https://github.com/anirudhvasudev/portfolio",
+    "demoUrl": "https://anirudhvasudev.com",
+    "featured": true,
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "E-commerce Platform",
+    "description": "A full-stack e-commerce platform with product catalog, shopping cart, and payment integration.",
+    "image": "/images/projects/ecommerce.jpg",
+    "technologies": ["React", "Redux", "Node.js", "Express", "MongoDB", "Stripe"],
+    "githubUrl": "https://github.com/anirudhvasudev/ecommerce",
+    "demoUrl": "https://shop-demo.anirudhvasudev.com",
+    "featured": true,
+    "createdAt": "2023-02-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Task Management App",
+    "description": "A productivity app for managing tasks, projects and deadlines with team collaboration features.",
+    "image": "/images/projects/task-app.jpg",
+    "technologies": ["Vue.js", "Vuex", "Firebase", "Cloud Functions", "Progressive Web App"],
+    "githubUrl": "https://github.com/anirudhvasudev/task-manager",
+    "demoUrl": "https://tasks.anirudhvasudev.com",
+    "featured": false,
+    "createdAt": "2023-03-01T00:00:00.000Z"
+  }
+]

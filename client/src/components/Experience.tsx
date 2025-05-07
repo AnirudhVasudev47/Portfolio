@@ -1,28 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
-import { Experience as ExperienceType } from "@shared/schema";
+import { Experience as ExperienceType } from "../types";
 
 const Experience = () => {
   // Fetch experiences data from the API
   const { data: experiences = [], isLoading, error } = useQuery<ExperienceType[]>({
     queryKey: ['/api/experiences'],
   });
-  
+
   // Function to format period from startDate and endDate
   const formatPeriod = (startDate: string, endDate?: string | null) => {
     // Extract year and month from date string (format: YYYY-MM)
     const formatDate = (dateStr: string) => {
       if (dateStr === 'Present') return 'Present';
-      
+
       const [year, month] = dateStr.split('-');
       if (!month) return year;
-      
+
       const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       return `${monthNames[parseInt(month) - 1]} ${year}`;
     };
-    
+
     const start = formatDate(startDate);
     const end = endDate ? formatDate(endDate) : 'Present';
-    
+
     return `${start} - ${end}`;
   };
 
@@ -41,13 +41,13 @@ const Experience = () => {
             <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
           </div>
         )}
-        
+
         {error && (
           <div className="text-center text-red-500 my-8">
             <p>Failed to load experience data. Please try again later.</p>
           </div>
         )}
-        
+
         {!isLoading && !error && experiences.length > 0 && (
           <div className="max-w-4xl mx-auto relative">
             {/* Vertical center line that connects all dots */}
@@ -87,7 +87,7 @@ const Experience = () => {
             ))}
           </div>
         )}
-        
+
         {!isLoading && !error && experiences.length === 0 && (
           <div className="text-center text-gray-500 my-8">
             <p>No experience data found.</p>

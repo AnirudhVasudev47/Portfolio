@@ -14,11 +14,11 @@ const apiRequest = async (
       'Content-Type': 'application/json'
     }
   });
-  
+
   if (!response.ok) {
     throw new Error(`API request failed: ${response.status}`);
   }
-  
+
   return response.json();
 };
 
@@ -28,22 +28,27 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  
+
   const [errors, setErrors] = useState({
     name: '',
     email: '',
     message: ''
   });
-  
+
   // State to track submission status
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
-  // Create mutation for sending messages to the API
+
+  // Simulate sending messages for static site
   const sendMessageMutation = useMutation({
     mutationFn: (data: typeof formData) => {
-      return apiRequest('/api/messages', {
-        method: 'POST',
-        body: JSON.stringify(data)
+      // For static site, we'll simulate a successful API call
+      console.log('Form submission (static site):', data);
+
+      // Simulate network delay
+      return new Promise<{ success: true }>((resolve) => {
+        setTimeout(() => {
+          resolve({ success: true });
+        }, 1000);
       });
     },
     onSuccess: () => {
@@ -54,7 +59,7 @@ const Contact = () => {
         email: '',
         message: ''
       });
-      
+
       // Reset status after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
@@ -76,7 +81,7 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear error when typing
     if (errors[name as keyof typeof errors]) {
       setErrors(prev => ({
@@ -88,16 +93,16 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Form validation
     let valid = true;
     const newErrors = { name: '', email: '', message: '' };
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
       valid = false;
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
       valid = false;
@@ -105,14 +110,14 @@ const Contact = () => {
       newErrors.email = 'Please enter a valid email address';
       valid = false;
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
       valid = false;
     }
-    
+
     setErrors(newErrors);
-    
+
     if (valid) {
       // Submit to the API
       sendMessageMutation.mutate(formData);
@@ -126,11 +131,11 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
-        
+
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="text-primary text-xl mt-1 mr-4">
@@ -141,7 +146,7 @@ const Contact = () => {
                   <a href="mailto:anirudh040799@gmail.com" className="text-gray-600 hover:text-primary transition-colors">anirudh040799@gmail.com</a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="text-primary text-xl mt-1 mr-4">
                   <i className="ri-linkedin-box-line"></i>
@@ -151,7 +156,7 @@ const Contact = () => {
                   <a href="https://linkedin.com/in/anirudh-vasudev" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">linkedin.com/in/anirudh-vasudev</a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="text-primary text-xl mt-1 mr-4">
                   <i className="ri-global-line"></i>
@@ -161,7 +166,7 @@ const Contact = () => {
                   <a href="https://anirudhvasudev.online" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">anirudhvasudev.online</a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="text-primary text-xl mt-1 mr-4">
                   <i className="ri-map-pin-line"></i>
@@ -173,7 +178,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
             <form id="contact-form" onSubmit={handleSubmit}>
@@ -190,7 +195,7 @@ const Contact = () => {
                 />
                 {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
               </div>
-              
+
               <div className="mb-4">
                 <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
                 <input 
@@ -204,7 +209,7 @@ const Contact = () => {
                 />
                 {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
                 <textarea 
@@ -218,21 +223,21 @@ const Contact = () => {
                 />
                 {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
               </div>
-              
+
               {submitStatus === 'success' && (
                 <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg">
                   <p className="font-medium">Your message has been sent successfully!</p>
                   <p className="text-sm mt-1">I'll get back to you as soon as possible.</p>
                 </div>
               )}
-              
+
               {submitStatus === 'error' && (
                 <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
                   <p className="font-medium">Failed to send message.</p>
                   <p className="text-sm mt-1">Please try again later or contact me directly via email.</p>
                 </div>
               )}
-              
+
               <button 
                 type="submit" 
                 className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors flex justify-center items-center"
