@@ -2,7 +2,7 @@ const Education = () => {
   const education = [
     {
       degree: "Master's Degree, Data Science",
-      institution: "IU International University of Applied Sciences",
+      institution: "IU International University of Applied Sciences - Berlin",
       status: "Oct 2024 - Oct 2025",
       description: "Focusing on advanced data analysis, machine learning algorithms, and their application in solving real-world problems."
     },
