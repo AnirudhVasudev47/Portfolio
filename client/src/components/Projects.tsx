@@ -43,6 +43,10 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div key={project.id || index} className="project-card bg-white rounded-xl shadow-lg h-full flex flex-col">
+              <iframe
+                  className={"h-96"}
+                  src={project.demoUrl} title={project.title}>
+              </iframe>
               <div className="p-5 md:p-7 flex-1 flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold mb-3">{project.title}</h3>
                 <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-5 flex-1">
