@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Skill as SkillType } from "@shared/schema";
+import { Skill as SkillType } from "@/types.ts";
 import { 
   SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, 
   SiVuedotjs, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiGraphql,

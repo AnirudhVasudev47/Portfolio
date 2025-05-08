@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { Message } from '@shared/schema';
 
 // The API request function
 const apiRequest = async (
