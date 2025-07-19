@@ -49,7 +49,7 @@ const Experience = () => {
         )}
 
         {!isLoading && !error && experiences.length > 0 && (
-          <div className="max-w-4xl mx-auto relative">
+          <div className="max-w-7xl mx-auto relative">
             {/* Vertical center line that connects all dots */}
             <div className="absolute hidden md:inline left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200 z-0"></div>
 
@@ -68,7 +68,7 @@ const Experience = () => {
                   </div>
 
                   <div className="flex-1 md:pl-24 items-center justify-center order-2">
-                    <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div className="bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                       <p className="text-gray-700 mb-4">{exp.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {exp.skills && exp.skills.map((skill, skillIndex) => (

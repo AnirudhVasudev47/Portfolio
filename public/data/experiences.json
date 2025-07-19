@@ -1,5 +1,16 @@
 [
   {
+    "id": 5,
+    "company": "Tranna (IIM Bangalore-incubated)",
+    "position": "Co-Founder & CTO",
+    "startDate": "2022-07",
+    "endDate": null,
+    "description": "Developed a cross-platform React Native mobile app that incentivizes safe driving, attracting thousands of active users within the first six months. Scaled AWS backend infrastructure to handle real-time driving data, achieving significant performance improvements. Led product strategy and partnerships, securing pilot agreements with local insurers and coordinating with IIM Bangalore mentors to validate the company's growth potential.\n",
+    "skills": ["React", "Node.js", "TypeScript", "AWS", "System Design"],
+    "order": 0,
+    "createdAt": "2025-07-19T00:00:00.000Z"
+  },
+  {
     "id": 1,
     "company": "Deloitte",
     "position": "Consultant",
