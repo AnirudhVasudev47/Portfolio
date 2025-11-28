@@ -1,4 +1,4 @@
-import { Project } from "../types";
+import {Project} from "../types";
 
 const Projects = () => {
   // Hardcoded projects data from resume
@@ -44,8 +44,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={project.id || index} className="project-card bg-white rounded-xl shadow-lg h-full flex flex-col">
               <iframe
-                  className={"h-96"}
-                  src={project.demoUrl} title={project.title}>
+                className={"h-96"}
+                src={project.demoUrl} title={project.title}>
               </iframe>
               <div className="p-5 md:p-7 flex-1 flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold mb-3">{project.title}</h3>
@@ -53,11 +53,13 @@ const Projects = () => {
                   {project.description}
                 </p>
                 {project.demoUrl && (
-                  <a 
-                    href={project.demoUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-primary hover:text-primary/80 font-medium mb-4 inline-block"
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 font-medium mb-4 inline-block
+                    border border-blue-800 w-fit px-4 py-2 rounded-md transition-colors duration-300
+                    hover:bg-blue-800 hover:text-white"
                   >
                     View Project
                   </a>

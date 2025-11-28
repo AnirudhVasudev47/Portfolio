@@ -1,25 +1,6 @@
 import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
 
-// The API request function
-const apiRequest = async (
-  url: string,
-  options?: RequestInit
-): Promise<any> => {
-  const response = await fetch(url, {
-    ...options,
-    headers: {
-      ...(options?.headers || {}),
-      'Content-Type': 'application/json'
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`);
-  }
-
-  return response.json();
-};
+// No external API needed; we'll open the user's email client with a mailto link on submit.
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,45 +15,8 @@ const Contact = () => {
     message: ''
   });
 
-  // State to track submission status
+  // Optional status for basic UX messaging
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  // Simulate sending messages for static site
-  const sendMessageMutation = useMutation({
-    mutationFn: (data: typeof formData) => {
-      // For static site, we'll simulate a successful API call
-      console.log('Form submission (static site):', data);
-
-      // Simulate network delay
-      return new Promise<{ success: true }>((resolve) => {
-        setTimeout(() => {
-          resolve({ success: true });
-        }, 1000);
-      });
-    },
-    onSuccess: () => {
-      setSubmitStatus('success');
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-
-      // Reset status after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    },
-    onError: () => {
-      setSubmitStatus('error');
-    }
-  });
-
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -102,14 +46,6 @@ const Contact = () => {
       valid = false;
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-      valid = false;
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-      valid = false;
-    }
-
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
       valid = false;
@@ -118,8 +54,28 @@ const Contact = () => {
     setErrors(newErrors);
 
     if (valid) {
-      // Submit to the API
-      sendMessageMutation.mutate(formData);
+      // Compose a mailto: link to open the user's email client with the message
+      // Target email inferred from Footer component
+      const recipient = 'anirudh040799@gmail.com';
+      const subject = `New message from ${formData.name}`;
+      const bodyLines = [
+        `From: ${formData.name} <${formData.email}>`,
+        '',
+        'Message:',
+        formData.message
+      ];
+      const body = bodyLines.join('\n');
+
+      const mailtoUrl = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Update status for UX (not critical)
+      setSubmitStatus('success');
+
+      // Open the email client
+      window.location.href = mailtoUrl;
+
+      // Optionally clear form
+      setFormData({ name: '', email: '', message: '' });
     }
   };
 
@@ -136,15 +92,6 @@ const Contact = () => {
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="text-primary text-xl mt-1 mr-4">
-                  <i className="ri-mail-line"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold mb-1">Email</h4>
-                  <a href="mailto:anirudh040799@gmail.com" className="text-gray-600 hover:text-primary transition-colors">contact@anirudhvasudev.online</a>
-                </div>
-              </div>
 
               <div className="flex items-start">
                 <div className="text-primary text-xl mt-1 mr-4">
@@ -162,7 +109,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-1">Website</h4>
-                  <a href="https://anirudhvasudev.online" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">anirudhvasudev.online</a>
+                  <a href="https://anirudh-vasudev.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">anirudh-vasudev.vercel.app</a>
                 </div>
               </div>
 
@@ -172,7 +119,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-1">Location</h4>
-                  <p className="text-gray-600">Berlin, Germany</p>
+                  <p className="text-gray-600">Bangalore, Karnataka</p>
                 </div>
               </div>
             </div>
@@ -193,20 +140,6 @@ const Contact = () => {
                   onChange={handleChange}
                 />
                 {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  placeholder="Your email" 
-                  className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors`}
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
               </div>
 
               <div className="mb-6">
@@ -240,14 +173,8 @@ const Contact = () => {
               <button 
                 type="submit" 
                 className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors flex justify-center items-center"
-                disabled={sendMessageMutation.isPending}
               >
-                {sendMessageMutation.isPending ? (
-                  <>
-                    <span className="mr-2 animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></span>
-                    Sending...
-                  </>
-                ) : 'Send Message'}
+                Send Message
               </button>
             </form>
           </div>
