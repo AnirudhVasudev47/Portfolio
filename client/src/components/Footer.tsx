@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <a href="#home" className="text-2xl font-bold text-black">Anirudh<span className="text-primary">.dev</span></a>
-            <p className="mt-2 text-gray-400">Full Stack Developer & Backend Specialist</p>
+            <p className="mt-2 text-gray-400">Gen AI Engineer · LLMs, RAG & Agentic AI</p>
           </div>
           
           <div className="flex space-x-6">
@@ -20,7 +20,7 @@ const Footer = () => {
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
               <i className="ri-twitter-fill text-xl"></i>
             </a>
-            <a href="mailto:anirudh040799@gmail.com" className="text-gray-400 hover:text-primary transition-colors">
+            <a href="mailto:anirudhvasudev47@gmail.com" className="text-gray-400 hover:text-primary transition-colors">
               <i className="ri-mail-line text-xl"></i>
             </a>
           </div>

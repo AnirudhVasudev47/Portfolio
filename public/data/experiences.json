@@ -1,70 +1,129 @@
 [
   {
     "id": 1,
+    "company": "KRElixir",
+    "position": "AI & Cloud Solutions Engineer",
+    "location": "Bangalore, India",
+    "startDate": "2026-01",
+    "endDate": null,
+    "description": "Global digital transformation partner delivering cloud, AI/ML, and data-driven solutions for enterprise clients.",
+    "highlights": [
+      "Architected and deployed Agentic AI workflows automating multi-step enterprise processes, reducing manual intervention by integrating LLM reasoning with tool-use pipelines.",
+      "Built end-to-end GenAI applications on AWS (Lambda, SageMaker) with CI/CD pipelines using GitHub Actions for automated model deployment and regression testing.",
+      "Designed scalable data pipelines on GCP (Vertex AI, BigQuery) enabling real-time predictive insights for enterprise clients.",
+      "Containerized AI inference services using Docker and Kubernetes, supporting zero-downtime deployments across cloud environments."
+    ],
+    "skills": [
+      "Agentic AI",
+      "LLMs",
+      "AWS Lambda",
+      "SageMaker",
+      "GCP Vertex AI",
+      "BigQuery",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions"
+    ],
+    "order": 1,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "company": "AiraDoc",
+    "position": "Gen AI Engineer",
+    "location": "Berlin, Germany",
+    "startDate": "2025-08",
+    "endDate": "2025-11",
+    "description": "Healthtech startup building cloud-native platforms and AI-driven tools for digital healthcare delivery.",
+    "highlights": [
+      "Designed and deployed RAG pipelines using LangChain and ChromaDB for context-aware querying of unstructured medical records, improving retrieval accuracy significantly.",
+      "Built Agentic AI workflows for document understanding — enabling autonomous extraction, classification, and summarization of healthcare documents using LLMs.",
+      "Developed vector search systems using ChromaDB and embeddings for semantic retrieval across structured and unstructured healthcare data.",
+      "Implemented scalable backend AI inference services with FastAPI and NestJS, integrated with CI/CD pipelines for continuous model updates."
+    ],
+    "skills": [
+      "RAG",
+      "LangChain",
+      "ChromaDB",
+      "Embeddings",
+      "Vector Search",
+      "FastAPI",
+      "NestJS",
+      "LLMs"
+    ],
+    "order": 2,
+    "createdAt": "2025-12-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
     "company": "Deloitte",
     "position": "Consultant",
+    "location": "Bengaluru, India",
     "startDate": "2023-11",
     "endDate": "2024-07",
-    "description": "Titan Project – Improved project alignment with client goals by ensuring 100% requirement accuracy during the discovery phase. VGuard Project – Designed and implemented core modules, APIs, including a real-time notification engine, attendance tracking system, and expense management feature, improving user experience and operational efficiency.",
+    "description": "Global consulting firm delivering digital transformation for enterprise clients.",
+    "highlights": [
+      "Led API strategy and infrastructure planning for the Titan Project — a large-scale cloud migration initiative with ML-extensible architecture.",
+      "Delivered core modules for the VGuard Project, including a real-time notification system and expense tracker using distributed systems on Node.js.",
+      "Designed backend systems for high-volume event stream processing, laying the data foundation for AI-driven analytics and automation."
+    ],
+    "skills": [
+      "Node.js",
+      "TypeScript",
+      "REST APIs",
+      "Cloud Migration",
+      "Distributed Systems",
+      "Event Streaming"
+    ],
+    "order": 3,
+    "createdAt": "2024-08-01T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "company": "BHIVE Alts",
+    "position": "Full Stack Developer",
+    "location": "Bengaluru, India",
+    "startDate": "2022-06",
+    "endDate": "2023-11",
+    "description": "Fintech platform offering alternative investment opportunities.",
+    "highlights": [
+      "Built the BHIVE Alts investment platform; developed a payment module that generated ₹6 Cr in revenue within 3 months of launch.",
+      "Designed analytics-driven dashboards integrating financial data modeling and ML-based performance insights.",
+      "Led transition to TypeScript, improving code quality and reducing production bugs by 50% across algorithm-heavy business logic."
+    ],
     "skills": [
       "React",
       "Node.js",
       "TypeScript",
-      "API Design",
-      "Project Management"
-    ],
-    "order": 1,
-    "createdAt": "2024-08-01T00:00:00.000Z"
-  },
-  {
-    "id": 2,
-    "company": "BHIVE Alts",
-    "position": "Full Stack Developer",
-    "startDate": "2022-06",
-    "endDate": "2023-11",
-    "description": "Developed BHIVE Alts App – Solely built and launched an investor-focused app, driving user engagement and supporting company growth. Project Lead for Payment Module – Led development of a payment module, contributing to combined revenue generation of ₹60 crore. Tech Stack Optimization – Introduced improvements to the tech stack, enhancing app performance and reliability.",
-    "skills": [
-      "React",
-      "Node.js",
       "Payment Integration",
-      "App Development",
-      "Tech Leadership"
+      "Data Modeling",
+      "Analytics Dashboards"
     ],
-    "order": 2,
+    "order": 4,
     "createdAt": "2023-12-01T00:00:00.000Z"
   },
   {
-    "id": 3,
+    "id": 5,
     "company": "Webbirth",
     "position": "Software Engineer",
+    "location": "Bangalore, India",
     "startDate": "2021-09",
     "endDate": "2022-06",
-    "description": "Built mobile applications for six projects using React Native and Flutter. Enhanced solution reliability by 25% through leading backend development with Node.js and Laravel. Worked across multiple technologies to meet varied client requirements in a dynamic startup environment.",
+    "description": "Product development agency for cross-platform e-commerce and mobile apps.",
+    "highlights": [
+      "Developed e-commerce mobile apps using React Native and Flutter with full checkout functionality.",
+      "Designed robust backend services using Laravel and Node.js, enhancing system reliability by 25%.",
+      "Delivered multiple client projects on time while adapting to rapidly evolving requirements."
+    ],
     "skills": [
       "React Native",
       "Flutter",
       "Node.js",
       "Laravel",
+      "REST APIs",
       "Mobile Development"
     ],
-    "order": 3,
+    "order": 5,
     "createdAt": "2022-07-01T00:00:00.000Z"
-  },
-  {
-    "id": 4,
-    "company": "Civil Engineering System",
-    "position": "Full Stack Developer",
-    "startDate": "2020-06",
-    "endDate": "2021-07",
-    "description": "Supported development and testing of in-house applications, focusing on PHP-based backend services and frontend development with React and theming using Bootstrap. Contributed to UI/UX design to improve the customer-facing platform.",
-    "skills": [
-      "React",
-      "PHP",
-      "Bootstrap",
-      "UI/UX Design",
-      "Testing"
-    ],
-    "order": 4,
-    "createdAt": "2021-08-01T00:00:00.000Z"
   }
 ]

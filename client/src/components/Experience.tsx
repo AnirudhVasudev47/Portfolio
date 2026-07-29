@@ -65,11 +65,26 @@ const Experience = () => {
                     </h3>
                     <p className="text-gray-600 mb-1">{formatPeriod(exp.startDate, exp.endDate)}</p>
                     <p className="font-medium">{exp.position}</p>
+                    {exp.location && (
+                      <p className="text-sm text-gray-500 mt-1">{exp.location}</p>
+                    )}
                   </div>
 
                   <div className="flex-1 md:pl-24 items-center justify-center order-2">
-                    <div className="bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div className="bg-white p-4 md:p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                       <p className="text-gray-700 mb-4">{exp.description}</p>
+                      {exp.highlights && exp.highlights.length > 0 && (
+                        <ul className="mb-4 space-y-2">
+                          {exp.highlights.map((highlight, highlightIndex) => (
+                            <li key={highlightIndex} className="flex text-gray-700 text-sm md:text-base">
+                              <span className="text-primary mr-2 mt-1 flex-shrink-0" aria-hidden="true">
+                                <i className="ri-check-line"></i>
+                              </span>
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                       <div className="flex flex-wrap gap-2">
                         {exp.skills && exp.skills.map((skill, skillIndex) => (
                           <span

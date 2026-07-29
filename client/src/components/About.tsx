@@ -21,46 +21,82 @@ const About = () => {
 
           <div className="md:w-1/2">
             <h3 className="text-2xl font-bold mb-4 text-primary">
-              Technical Lead & Full Stack Developer
+              Gen AI Engineer · LLMs, RAG & Agentic AI
             </h3>
             <p className="text-lg text-gray-700 mb-6">
-              A software development professional with over 4 years of experience in full stack 
-              development and backend optimization, expert in React and Node.js. 
+              Gen AI Engineer with 5+ years of experience building production-grade Generative AI systems,
+              Agentic AI pipelines, and cloud-native backends. Hands-on expertise in LLM application
+              development (GPT, Claude, Gemini), RAG architectures, vector search, prompt engineering, and
+              fine-tuning using Python and LangChain.
             </p>
             <p className="text-lg text-gray-700 mb-6">
-              My key achievements include leading the development of a payment module 
-              that contributed to generating ₹60 crore in revenue at BHIVE Alts, and 
-              improving project alignment by ensuring 100% requirement accuracy at Deloitte.
-            </p>
-            <p className="text-lg text-gray-700 mb-6">
-              I specialize in developing full-stack applications with React on
-              the frontend and Node.js for backend services. My expertise
-              extends to database optimization, API design, and implementing
-              scalable architecture patterns that can handle growing user
-              demands.
+              I deploy GenAI workloads on AWS (SageMaker, Lambda) and GCP (Vertex AI) with CI/CD pipelines and
+              containerized microservices. My M.Sc. in Data Science gives me deep foundations in machine
+              learning, deep learning, and NLP.
             </p>
             <p className="text-lg text-gray-700 mb-8">
-              What drives me is solving complex problems with elegant solutions.
-              Whether it's optimizing a slow-performing database query,
-              refactoring legacy code, or designing a new system from scratch, I
-              thrive on challenges that push my technical abilities.
+              My background spans healthtech, fintech, and enterprise consulting — shipping GenAI products
+              from prototype to production.
             </p>
 
+            <h4 className="text-lg font-bold mb-3">Highlights</h4>
+            <ul className="mb-8 space-y-3">
+              <li className="flex text-gray-700">
+                <span className="text-primary mr-2 mt-1 flex-shrink-0" aria-hidden="true">
+                  <i className="ri-rocket-line"></i>
+                </span>
+                <span>
+                  Founded <strong>Tranna</strong>, a road safety rewards startup incubated at IIM Bangalore
+                  NSRCEL — built on React Native + FastAPI with GPS-based agentic scoring and real-time trip
+                  analysis.
+                </span>
+              </li>
+              <li className="flex text-gray-700">
+                <span className="text-primary mr-2 mt-1 flex-shrink-0" aria-hidden="true">
+                  <i className="ri-trophy-line"></i>
+                </span>
+                <span>
+                  Advanced to the final audition round of <strong>Shark Tank India Season 1</strong>, pitching
+                  an AI-driven road safety product built from scratch.
+                </span>
+              </li>
+              <li className="flex text-gray-700">
+                <span className="text-primary mr-2 mt-1 flex-shrink-0" aria-hidden="true">
+                  <i className="ri-line-chart-line"></i>
+                </span>
+                <span>
+                  Contributed to infrastructure supporting <strong>₹6 Cr.</strong> in annual investor capital at
+                  BHIVE Alts, and led TypeScript adoption that cut production bugs by 50%.
+                </span>
+              </li>
+              <li className="flex text-gray-700">
+                <span className="text-primary mr-2 mt-1 flex-shrink-0" aria-hidden="true">
+                  <i className="ri-book-2-line"></i>
+                </span>
+                <span>
+                  Published research in IJCRT: "Ride-Along Application" — Paper ID: IJCRT2106046.
+                </span>
+              </li>
+            </ul>
+
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm font-medium">
-                React
-              </span>
-              <span className="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm font-medium">
-                Node.js
-              </span>
               <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">
-                Backend Optimization
+                LLMs
+              </span>
+              <span className="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm font-medium">
+                RAG
               </span>
               <span className="px-3 py-1 bg-indigo-100 text-accent rounded-full text-sm font-medium">
-                Full Stack
+                Agentic AI
+              </span>
+              <span className="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm font-medium">
+                LangChain
+              </span>
+              <span className="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">
+                AWS & GCP
               </span>
               <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-                Scalable Systems
+                Python
               </span>
             </div>
           </div>

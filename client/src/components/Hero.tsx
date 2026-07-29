@@ -1,5 +1,5 @@
 import profileImage from '../attached_assets/profile.jpg';
-import { FaCode } from 'react-icons/fa';
+import { FaBrain } from 'react-icons/fa';
 import ResumeDownload from './ResumeDownload';
 
 const Hero = () => {
@@ -20,7 +20,7 @@ const Hero = () => {
             </div>
             <div className="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg animate-bounce-slow">
               <span className="text-primary text-xl flex items-center justify-center">
-                <FaCode />
+                <FaBrain />
               </span>
             </div>
           </div>
@@ -31,10 +31,11 @@ const Hero = () => {
               Anirudh Vasudev
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-900 font-semibold mb-6">
-              Full Stack Developer | React & Node.js | Backend Optimization
+              Gen AI Engineer | LLMs · RAG · Agentic AI
             </h2>
             <p className="text-base md:text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
-              I build scalable, efficient, and user-friendly web applications with a focus on optimized backend systems and seamless frontend experiences.
+              I build production-grade Generative AI systems — LLM applications, RAG pipelines, and agentic
+              workflows — and ship them on AWS and GCP with cloud-native backends and CI/CD.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="#contact" className="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors" onClick={(e) => {
@@ -64,7 +65,7 @@ const Hero = () => {
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
                 <i className="ri-twitter-fill text-2xl"></i>
               </a>
-              <a href="mailto:anirudh040799@gmail.com" className="text-gray-600 hover:text-primary transition-colors">
+              <a href="mailto:anirudhvasudev47@gmail.com" className="text-gray-600 hover:text-primary transition-colors">
                 <i className="ri-mail-line text-2xl"></i>
               </a>
             </div>

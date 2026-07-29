@@ -1,17 +1,25 @@
 const Education = () => {
   const education = [
     {
-      degree: "Master's Degree, Data Science",
-      institution: "IU International University of Applied Sciences - Berlin",
+      degree: "M.Sc. Data Science",
+      institution: "IU International University of Applied Sciences, Berlin",
       status: "Oct 2024 - Oct 2025",
-      description: "Focusing on advanced data analysis, machine learning algorithms, and their application in solving real-world problems."
+      result: "Grade: 2.1 (≈ B+ / Distinction)",
+      description: "ML, Deep Learning, Big Data Analytics. Applied TensorFlow & PyTorch for real-world AI projects."
     },
     {
-      degree: "Bachelor of Technology - BTech, Computer Science",
+      degree: "B.Tech Computer Science",
       institution: "Presidency University, Bangalore",
       status: "Jan 2017 - Dec 2021",
-      description: "Comprehensive education in computer science fundamentals, algorithms, data structures, and software engineering principles."
+      result: "CGPA: 7/10",
+      description: "Computer science fundamentals across algorithms, data structures, and software engineering principles."
     }
+  ];
+
+  const languages = [
+    { name: "English", level: "Native" },
+    { name: "Kannada", level: "Native" },
+    { name: "Hindi", level: "Native" }
   ];
 
   return (
@@ -30,10 +38,11 @@ const Education = () => {
                   <h3 className="text-xl font-bold text-primary">{edu.degree}</h3>
                   <p className="text-gray-700 font-medium">{edu.institution}</p>
                 </div>
-                <div className="mt-2 md:mt-0">
-                  <span className={`${edu.status === 'Ongoing' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'} text-xs font-medium px-3 py-1 rounded-full`}>
+                <div className="mt-2 md:mt-0 md:text-right">
+                  <span className="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">
                     {edu.status}
                   </span>
+                  <p className="text-sm text-gray-600 mt-2">{edu.result}</p>
                 </div>
               </div>
               <p className="text-gray-600">
@@ -41,6 +50,28 @@ const Education = () => {
               </p>
             </div>
           ))}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-lg font-bold text-primary mb-4">Languages</h3>
+              <ul className="space-y-2">
+                {languages.map((language) => (
+                  <li key={language.name} className="flex items-center justify-between text-gray-700">
+                    <span className="font-medium">{language.name}</span>
+                    <span className="text-sm text-gray-600">{language.level}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-lg font-bold text-primary mb-4">Publication</h3>
+              <p className="text-gray-700 font-medium">"Ride-Along Application"</p>
+              <p className="text-gray-600 mt-1">
+                Published in IJCRT · Paper ID: IJCRT2106046
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

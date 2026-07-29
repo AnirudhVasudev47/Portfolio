@@ -1,12 +1,18 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Skill as SkillType } from "@/types.ts";
-import { 
-  SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, 
-  SiVuedotjs, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiGraphql,
-  SiGit, SiDocker, SiAmazon, SiFirebase, SiPython, SiJest, SiFigma, SiCypress
+import {
+  SiOpenai, SiLangchain, SiMlflow,
+  SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiPandas, SiNumpy, SiFastapi, SiStreamlit,
+  SiAwslambda, SiAmazonwebservices, SiGooglecloud, SiGooglebigquery, SiDocker, SiKubernetes, SiTerraform,
+  SiGithubactions, SiElasticstack, SiGrafana,
+  SiNodedotjs, SiNestjs, SiGraphql, SiPostgresql, SiMongodb, SiRedis,
+  SiReact, SiNextdotjs, SiTypescript
 } from 'react-icons/si';
-import { FaCode, FaServer, FaDatabase, FaCogs } from 'react-icons/fa';
+import {
+  FaCode, FaServer, FaDatabase, FaCogs, FaBrain, FaCloud,
+  FaProjectDiagram, FaRobot, FaComments, FaSearch, FaVectorSquare, FaSlidersH
+} from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 const Skills = () => {
@@ -19,36 +25,65 @@ const Skills = () => {
   const getSkillIcon = (name: string, category: string): IconType => {
     // Map skill names to specific icons
     const iconMap: Record<string, IconType> = {
-      "JavaScript": SiJavascript,
-      "TypeScript": SiTypescript,
-      "React": SiReact,
-      "Vue.js": SiVuedotjs,
-      "HTML5": SiHtml5,
-      "CSS3": SiCss3,
-      "Tailwind CSS": SiTailwindcss,
+      // AI & GenAI
+      "LLMs": SiOpenai,
+      "RAG": FaProjectDiagram,
+      "Agentic AI": FaRobot,
+      "LangChain": SiLangchain,
+      "Prompt Engineering": FaComments,
+      "Vector Search": FaSearch,
+      "ChromaDB": FaDatabase,
+      "Embeddings": FaVectorSquare,
+      "Fine-Tuning": FaSlidersH,
+      "MLflow": SiMlflow,
+      // Python & ML
+      "Python": SiPython,
+      "TensorFlow": SiTensorflow,
+      "PyTorch": SiPytorch,
+      "Scikit-learn": SiScikitlearn,
+      "Pandas": SiPandas,
+      "NumPy": SiNumpy,
+      "FastAPI": SiFastapi,
+      "Streamlit": SiStreamlit,
+      // Cloud & Hyperscalers
+      "AWS Lambda": SiAwslambda,
+      "SageMaker": SiAmazonwebservices,
+      "CloudWatch": SiAmazonwebservices,
+      "GCP Vertex AI": SiGooglecloud,
+      "BigQuery": SiGooglebigquery,
+      "Docker": SiDocker,
+      "Kubernetes": SiKubernetes,
+      "Terraform": SiTerraform,
+      // CI/CD & DevOps
+      "GitHub Actions": SiGithubactions,
+      "CI/CD Pipelines": FaCogs,
+      "ELK Stack": SiElasticstack,
+      "Grafana": SiGrafana,
+      // Backend & Databases
       "Node.js": SiNodedotjs,
-      "Express": SiExpress,
+      "NestJS": SiNestjs,
+      "REST APIs": FaServer,
+      "GraphQL": SiGraphql,
       "PostgreSQL": SiPostgresql,
       "MongoDB": SiMongodb,
-      "GraphQL": SiGraphql,
-      "Docker": SiDocker,
-      "Git": SiGit,
-      "Jest": SiJest,
-      "Cypress": SiCypress,
-      "Figma": SiFigma,
-      "Python": SiPython,
-      "AWS": SiAmazon,
-      "Firebase": SiFirebase
+      "Redis": SiRedis,
+      // Frontend
+      "React.js": SiReact,
+      "React": SiReact,
+      "Next.js": SiNextdotjs,
+      "React Native": SiReact,
+      "TypeScript": SiTypescript
     };
     
     // Map categories to fallback icons
     const categoryIcons: Record<string, IconType> = {
+      "AI & GenAI": FaBrain,
+      "Python & ML": FaBrain,
+      "Cloud & Hyperscalers": FaCloud,
+      "CI/CD & DevOps": FaCogs,
+      "Backend & Databases": FaServer,
       "Frontend": FaCode,
-      "Backend": FaServer,
-      "DevOps": FaCogs,
-      "Database": FaDatabase,
-      "Testing": FaCode,
-      "Design": FaCode
+      "Database": FaDatabase
     };
     
     // Return specific icon if available, otherwise use category icon, or default icon
@@ -58,11 +93,12 @@ const Skills = () => {
   // Map skill categories to colors
   const getSkillColor = (category: string) => {
     const colorMap: Record<string, string> = {
-      "Frontend": "text-blue-500",
-      "Backend": "text-green-600",
-      "DevOps": "text-gray-700",
-      "Testing": "text-purple-600",
-      "Design": "text-pink-500"
+      "AI & GenAI": "text-purple-600",
+      "Python & ML": "text-amber-600",
+      "Cloud & Hyperscalers": "text-orange-500",
+      "CI/CD & DevOps": "text-gray-700",
+      "Backend & Databases": "text-green-600",
+      "Frontend": "text-blue-500"
     };
     
     return colorMap[category] || "text-primary";

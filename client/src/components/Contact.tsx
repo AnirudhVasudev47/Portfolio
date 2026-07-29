@@ -55,8 +55,7 @@ const Contact = () => {
 
     if (valid) {
       // Compose a mailto: link to open the user's email client with the message
-      // Target email inferred from Footer component
-      const recipient = 'anirudh040799@gmail.com';
+      const recipient = 'anirudhvasudev47@gmail.com';
       const subject = `New message from ${formData.name}`;
       const bodyLines = [
         `From: ${formData.name} <${formData.email}>`,
@@ -95,6 +94,26 @@ const Contact = () => {
 
               <div className="flex items-start">
                 <div className="text-primary text-xl mt-1 mr-4">
+                  <i className="ri-mail-line"></i>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold mb-1">Email</h4>
+                  <a href="mailto:anirudhvasudev47@gmail.com" className="text-gray-600 hover:text-primary transition-colors">anirudhvasudev47@gmail.com</a>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="text-primary text-xl mt-1 mr-4">
+                  <i className="ri-phone-line"></i>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold mb-1">Phone</h4>
+                  <a href="tel:+918762291965" className="text-gray-600 hover:text-primary transition-colors">+91 87622 91965</a>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="text-primary text-xl mt-1 mr-4">
                   <i className="ri-linkedin-box-line"></i>
                 </div>
                 <div>
@@ -119,7 +138,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-1">Location</h4>
-                  <p className="text-gray-600">Bangalore, Karnataka</p>
+                  <p className="text-gray-600">Bangalore, India</p>
                 </div>
               </div>
             </div>

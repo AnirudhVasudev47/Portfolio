@@ -18,9 +18,11 @@ export interface Experience {
   id: number;
   company: string;
   position: string;
+  location?: string;
   startDate: string;
   endDate?: string | null;
   description: string;
+  highlights?: string[];
   skills?: string[];
   order?: number;
   createdAt: string;
